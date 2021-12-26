@@ -108,8 +108,8 @@
                     terms: false,
                     last_name: '',
                     localisation: '',
-                    phone: '',
-                    age: '',
+                    phone: null,
+                    age: null,
                 })
             }
         },
