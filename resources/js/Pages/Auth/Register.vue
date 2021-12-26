@@ -35,13 +35,13 @@
             </div>
 
             <div class="mt-4">
-                <jet-label for="password" value="Password" />
-                <jet-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="new-password" />
+                <jet-label for="age" value="Age" />
+                <jet-input id="age" type="number" class="mt-1 block w-full" v-model="form.age" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
-                <jet-label for="age" value="Age" />
-                <jet-input id="age" type="number" class="mt-1 block w-full" v-model="form.age" required autocomplete="new-password" />
+                <jet-label for="password" value="Password" />
+                <jet-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
