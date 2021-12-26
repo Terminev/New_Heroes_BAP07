@@ -15,18 +15,18 @@
             </div>
 
             <div>
-                <jet-label for="prenom" value="Prenom" />
-                <jet-input id="prenom" type="text" class="mt-1 block w-full" v-model="form.prenom" required autofocus autocomplete="name" />
+                <jet-label for="last_name" value="last_name" />
+                <jet-input id="last_name" type="text" class="mt-1 block w-full" v-model="form.last_name" required autofocus autocomplete="name" />
             </div>
 
              <div>
-                <jet-label for="adresse" value="Adresse" />
-                <jet-input id="adresse" type="text" class="mt-1 block w-full" v-model="form.adresse" required autofocus autocomplete="name" />
+                <jet-label for="localisation" value="localisation" />
+                <jet-input id="localisation" type="text" class="mt-1 block w-full" v-model="form.localisation" required autofocus autocomplete="name" />
             </div>
 
              <div>
-                <jet-label for="telephone" value="Telephone" />
-                <jet-input id="telephone" type="number" class="mt-1 block w-full" v-model="form.telephone" required autofocus autocomplete="name" />
+                <jet-label for="phone" value="phone" />
+                <jet-input id="phone" type="number" class="mt-1 block w-full" v-model="form.phone" required autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
@@ -106,9 +106,9 @@
                     password: '',
                     password_confirmation: '',
                     terms: false,
-                    prenom: '',
-                    adresse: '',
-                    telephone: '',
+                    last_name: '',
+                    localisation: '',
+                    phone: '',
                     age: '',
                 })
             }
