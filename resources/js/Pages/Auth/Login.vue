@@ -96,3 +96,9 @@
         }
     })
 </script>
+
+<style scoped>
+    .bg-linear-main{
+        background: linear-gradient(0.55turn, #C6E3DE, #81A4D0);
+    }
+</style>
