@@ -1,52 +1,57 @@
 <template>
+
     <Head title="Register" />
+
+
 
     <jet-authentication-card>
         <template #logo>
             <jet-authentication-card-logo />
+            <h1>INSCRIPTION</h1>
         </template>
+
 
         <jet-validation-errors class="mb-4" />
 
+
         <form @submit.prevent="submit">
             <div>
-                <jet-label for="name" value="Name" />
-                <jet-input id="name" type="text" class="mt-1 block w-full" v-model="form.name" required autofocus autocomplete="name" />
+
+                <jet-input id="name" type="text" placeholder="First Name"  class="mt-1 block w-full" v-model="form.name" required autofocus autocomplete="name" />
             </div>
 
             <div>
-                <jet-label for="last_name" value="last_name" />
-                <jet-input id="last_name" type="text" class="mt-1 block w-full" v-model="form.last_name" required autofocus autocomplete="name" />
+
+                <jet-input id="last_name" type="text" placeholder="Last Name" class="mt-1 block w-full" v-model="form.last_name" required autofocus autocomplete="name" />
             </div>
 
              <div>
-                <jet-label for="localisation" value="localisation" />
-                <jet-input id="localisation" type="text" class="mt-1 block w-full" v-model="form.localisation" required autofocus autocomplete="name" />
+
+                <jet-input id="localisation" type="text" placeholder="Adresse" class="mt-1 block w-full" v-model="form.localisation" required autofocus autocomplete="name" />
             </div>
 
              <div>
-                <jet-label for="phone" value="phone" />
-                <jet-input id="phone" type="number" class="mt-1 block w-full" v-model="form.phone" required autofocus autocomplete="name" />
+
+                <jet-input id="phone" type="number" placeholder="Numéro de téléphone" class="mt-1 block w-full" v-model="form.phone" required autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
-                <jet-label for="email" value="Email" />
-                <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required />
+
+                <jet-input id="email" type="email" placeholder="Adresse mail" class="mt-1 block w-full" v-model="form.email" required />
             </div>
 
             <div class="mt-4">
-                <jet-label for="age" value="Age" />
-                <jet-input id="age" type="number" class="mt-1 block w-full" v-model="form.age" required autocomplete="new-password" />
+
+                <jet-input id="age" type="number" placeholder="Age" class="mt-1 block w-full" v-model="form.age" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
-                <jet-label for="password" value="Password" />
-                <jet-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="new-password" />
+
+                <jet-input id="password" type="password" placeholder="Mot de passe" class="mt-1 block w-full" v-model="form.password" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
-                <jet-label for="password_confirmation" value="Confirm Password" />
-                <jet-input id="password_confirmation" type="password" class="mt-1 block w-full" v-model="form.password_confirmation" required autocomplete="new-password" />
+                <jet-input id="password_confirmation" type="password" placeholder="Confirmer mot de passe" class="mt-1 block w-full" v-model="form.password_confirmation" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4" v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature">
@@ -67,7 +72,7 @@
                 </Link>
 
                 <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Register
+                    CREATE ACCOUNT
                 </jet-button>
             </div>
         </form>
@@ -124,3 +129,13 @@
     })
 </script>
 
+
+<style scoped>
+
+
+h1{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+</style>
