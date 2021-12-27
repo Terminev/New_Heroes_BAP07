@@ -1,11 +1,21 @@
 <template>
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-linear-main">
-        <div>
-            <slot name="logo" />
-        </div>
+    <div class="h-screen">
 
-        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+        <!-- Ici j'ai enlevé le logo de base  -->
+        <!-- <div>
+            <slot name="logo" />
+        </div> -->
+
+        <div class="flex flex-col items-center justify-center bg-linear-main h-screen">
             <slot />
         </div>
     </div>
 </template>
+
+<style scoped>
+
+    /* J'ai ajouté a la carte d'identification le background linear donné dans la maquette  */
+    .bg-linear-main{
+        background: linear-gradient(0.55turn, #C6E3DE, #81A4D0);
+    }
+</style>
