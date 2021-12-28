@@ -15,11 +15,12 @@
             {{ status }}
         </div>
 
-        <jet-button class="button-login">
-            LOGIN
-        </jet-button>
 
         <form @submit.prevent="submit">
+            <jet-button class="button-login">
+                LOGIN
+            </jet-button>
+
             <div class="">
                 <jet-input id="email" type="email" class="mt-1 block w-full" placeholder="email" v-model="form.email" required autofocus />
             </div>
@@ -39,7 +40,7 @@
                 <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
                     Mot de passe oublié ?
                 </Link>
-                <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
+                <Link v-if="canResetPassword" :href="route('register')" class="underline text-sm text-gray-600 hover:text-gray-900">
                     Vous n'avez pas de compte inscrivez-vous ?
                 </Link>
             </div>
