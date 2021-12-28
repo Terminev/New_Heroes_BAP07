@@ -40,7 +40,7 @@
                 <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
                     Mot de passe oublié ?
                 </Link>
-                <Link v-if="canResetPassword" :href="route('register')" class="underline text-sm text-gray-600 hover:text-gray-900">
+                <Link v-if="canResetPassword" :href="route('register')" class="underline text-sm mt-5 text-gray-600 hover:text-gray-900">
                     Vous n'avez pas de compte inscrivez-vous ?
                 </Link>
             </div>
