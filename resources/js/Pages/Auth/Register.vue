@@ -13,7 +13,7 @@
 
         <jet-validation-errors class="mb-4" />
 
-        <img src="/storage/app/img/login.png" alt="login">
+        <img src="/storage/img/login.png" alt="login">
 
         <form @submit.prevent="submit">
             <div class="flex gap-2">
