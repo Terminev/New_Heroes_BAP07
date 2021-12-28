@@ -13,8 +13,10 @@
 
         <jet-validation-errors class="mb-4" />
 
+        <img src="/storage/app/img/login.png" alt="login">
 
         <form @submit.prevent="submit">
+            <div class="flex gap-2">
             <div>
 
                 <jet-input id="name" type="text" placeholder="First Name"  class="mt-1 block w-full" v-model="form.name" required autofocus autocomplete="name" />
@@ -23,6 +25,8 @@
             <div>
 
                 <jet-input id="last_name" type="text" placeholder="Last Name" class="mt-1 block w-full" v-model="form.last_name" required autofocus autocomplete="name" />
+            </div>
+
             </div>
 
              <div>
@@ -66,7 +70,7 @@
                 </jet-label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex items-center justify-end flex-col-reverse mt-4">
                 <Link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">
                     Already registered?
                 </Link>
@@ -137,5 +141,20 @@ h1{
     font-weight: bold;
     font-size: 30px;
 }
+
+/* form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+
+form{
+    padding: 100px 0;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+
 
 </style>
