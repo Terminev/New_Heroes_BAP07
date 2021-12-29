@@ -6,7 +6,7 @@
 
 
             <slot />
-        
+
     </div>
 </template>
 
@@ -14,6 +14,8 @@
 <style scoped>
 
 .bg-linear{
-    background: linear-gradient(#c7e5e0, #7b9ece);
+    background: linear-gradient(
+#eaf5f3,
+#c9d7eb);
 }
 </style>
