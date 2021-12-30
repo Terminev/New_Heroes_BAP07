@@ -136,7 +136,7 @@
                     terms: false,
                     last_name: '',
                     localisation: '',
-                    phone: null,
+                    phone: '',
                     age: null,
                 })
             }
