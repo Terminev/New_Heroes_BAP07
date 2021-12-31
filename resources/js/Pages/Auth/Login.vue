@@ -1,6 +1,11 @@
 <template>
     <Head title="Log in" />
 
+    <header>
+        <img src="storage/img/logo.png" alt="logo">
+        <img src="storage/img/list.png" alt="burger">
+    </header>
+
     <jet-authentication-card>
         <h1>Connexion</h1>
         <template #logo>
@@ -103,17 +108,18 @@
 </script>
 
 <style scoped>
+
     h1{
         font-size: 30px;
         font-weight: bold;
         text-shadow: 0px 4px 4px rgb(16,16,16,0.25);
-        margin-bottom: 64px;
+        margin-bottom: 30px;
     }
 
     .button-login{
         font-size: 24px;
         font-weight: bold;
-        margin: 32px 0;
+        margin: 30px 0;
         text-shadow: 0px 4px 4px rgb(16,16,16,0.25);
     }
 
@@ -135,5 +141,16 @@
 
     .password-forgot{
         font-size: 14px;
+    }
+    
+    header{
+        display: flex;
+        position: fixed;
+        height: 63px;
+        background: white;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 15px;
     }
 </style>
