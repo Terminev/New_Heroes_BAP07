@@ -1,5 +1,7 @@
 <?php
 
+use App\Actions\Fortify\CreateNewCompany;
+use App\Http\Controllers\MentionsLegalController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -29,4 +31,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-
+Route::get('/mentions_legal', [MentionsLegalController::class,"index"])->name('MentionLegale');

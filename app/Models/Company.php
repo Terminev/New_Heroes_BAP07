@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Company extends Model
 {
     use HasFactory;
-    
+
 
 
 
@@ -24,6 +24,15 @@ class Company extends Model
         'phone',
 
     ];
+
+    protected $hidden = [
+        'password',
+    ];
+
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
 }
 
 

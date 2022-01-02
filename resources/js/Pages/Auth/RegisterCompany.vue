@@ -21,26 +21,26 @@
 
             <div class="border flex h-11 rounded">
                 <div class="containeurimage">
-                    <img src="/storage/img/login2.png" alt="login">
+                    <img class="age" src="/storage/img/age-group.png" alt="login">
                 </div>
-                <jet-input id="name" type="text" placeholder="First Name"  class="block w-full" v-model="form.name" required autofocus autocomplete="name" />
+                <jet-input id="company_name" type="text" placeholder="Company_name" class="block w-full" v-model="form.company_name" required autocomplete="company_name" />
             </div>
 
             <div class="border flex h-11 rounded">
                 <div class="containeurimage">
                     <img src="/storage/img/login2.png" alt="login">
                 </div>
-                <jet-input id="last_name" type="text" placeholder="Last Name" class="block w-full" v-model="form.last_name" required autofocus autocomplete="name" />
+                <jet-input id="name_representing" type="text" placeholder="Name Representing"  class="block w-full" v-model="form.name_representing" required autofocus autocomplete="name" />
             </div>
 
-
-
-             <div class="border flex h-11 rounded">
-                 <div class="containeurimage">
-                    <img src="/storage/img/map.png" alt="login">
+            <div class="border flex h-11 rounded">
+                <div class="containeurimage">
+                    <img src="/storage/img/login2.png" alt="login">
                 </div>
-                <jet-input id="localisation" type="text" placeholder="Localisation" class="block w-full" v-model="form.localisation" required autofocus autocomplete="name" />
+                <jet-input id="siret" type="text" placeholder="Siret" class="block w-full" v-model="form.siret" required autofocus autocomplete="name" />
             </div>
+
+
 
              <div class="border flex h-11 rounded">
                  <div class="containeurimage">
@@ -56,12 +56,7 @@
                 <jet-input id="email" type="email" placeholder="E-mail" class="block w-full" v-model="form.email" required />
             </div>
 
-            <div class="border flex h-11 rounded">
-                <div class="containeurimage">
-                    <img class="age" src="/storage/img/age-group.png" alt="login">
-                </div>
-                <jet-input id="age" type="number" placeholder="Age" class="block w-full" v-model="form.age" required autocomplete="new-password" />
-            </div>
+
 
             <div class="border flex h-11">
                 <div class="containeurimage">
@@ -102,6 +97,8 @@
     </jet-authentication-card>
 </template>
 
+
+
 <script>
     import { defineComponent } from 'vue'
     import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
@@ -129,15 +126,14 @@
         data() {
             return {
                 form: this.$inertia.form({
-                    name: '',
+                    company_name: '',
                     email: '',
                     password: '',
                     password_confirmation: '',
                     terms: false,
-                    last_name: '',
-                    localisation: '',
+                    name_representing: '',
+                    siret: '',
                     phone: '',
-                    age: null,
                 })
             }
         },
@@ -215,3 +211,7 @@ header{
 }
 
 </style>
+
+
+
+
