@@ -2,10 +2,9 @@
 
 <div class="containeur-faq">
 
- <header>
-        <img src="/storage/img/logo.png" alt="logo">
-        <img src="/storage/img/list.svg" alt="burger">
-</header>
+<Header>
+
+</Header>
 
 <img class="faqimg" src="/storage/img/faq-img.png" alt="faq-img">
 
@@ -157,10 +156,10 @@ h1{
 </style>
 
 <script>
-
+    import Header from '@/Components/Header.vue'
     export default{
         components: {
-
+        Header
         },
 
         data() {
