@@ -27,10 +27,16 @@
             </jet-button>
 
             <div class="">
+                <div class="img-container">
+                    <img src="/storage/img/person-circle.png" alt="login">
+                </div>
                 <jet-input id="email" type="email" class="mt-1 block w-full" placeholder="email" v-model="form.email" required autofocus />
             </div>
 
             <div class="">
+                <div class="img-container">
+                    <img src="/storage/img/lock.png" alt="login">
+                </div>
                 <jet-input id="password" type="password" class="mt-1 block w-full" placeholder="mot de passe" v-model="form.password" required autocomplete="current-password" />
             </div>
 
