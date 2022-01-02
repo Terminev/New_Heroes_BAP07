@@ -1,6 +1,6 @@
 <template>
 
-    <Head title="Register" />
+    <Head title="Register"/>
 
     <header>
         <img src="/storage/img/logo.png" alt="logo">
