@@ -1,10 +1,18 @@
 <template>
     <Head title="Log in" />
 
+    <header>
+        <img src="storage/img/logo.png" alt="logo">
+        <img src="storage/img/list.png" alt="burger">
+    </header>
+
     <jet-authentication-card>
+        <h1>Connexion</h1>
         <template #logo>
             <jet-authentication-card-logo />
         </template>
+
+        <img src="storage/img/logo_login.png" alt="img logo connection">
 
         <jet-validation-errors class="mb-4" />
 
@@ -12,32 +20,40 @@
             {{ status }}
         </div>
 
+
         <form @submit.prevent="submit">
-            <div>
-                <jet-label for="email" value="Email" />
-                <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus />
+            <jet-button class="button-login">
+                LOGIN
+            </jet-button>
+
+            <div class="">
+                <div class="img-container">
+                    <img src="/storage/img/person-circle.png" alt="login">
+                </div>
+                <jet-input id="email" type="email" class="mt-1 block w-full" placeholder="email" v-model="form.email" required autofocus />
             </div>
 
-            <div class="mt-4">
-                <jet-label for="password" value="Password" />
-                <jet-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
+            <div class="">
+                <div class="img-container">
+                    <img src="/storage/img/lock.png" alt="login">
+                </div>
+                <jet-input id="password" type="password" class="mt-1 block w-full" placeholder="mot de passe" v-model="form.password" required autocomplete="current-password" />
             </div>
 
-            <div class="block mt-4">
-                <label class="flex items-center">
+            <div class="block remember-button">
+                <label class="remember-button-content">
                     <jet-checkbox name="remember" v-model:checked="form.remember" />
-                    <span class="ml-2 text-sm text-gray-600">Remember me</span>
+                    <span class="ml-2">Remember me</span>
                 </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex items-center justify-center flex-col password-forgot">
                 <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    Forgot your password?
+                    Mot de passe oublié ?
                 </Link>
-
-                <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Log in
-                </jet-button>
+                <Link v-if="canResetPassword" :href="route('register')" class="underline text-sm mt-5 text-gray-600 hover:text-gray-900">
+                    Vous n'avez pas de compte inscrivez-vous ?
+                </Link>
             </div>
         </form>
     </jet-authentication-card>
@@ -77,7 +93,7 @@
                 form: this.$inertia.form({
                     email: '',
                     password: '',
-                    remember: false,
+                    remember: false
                 })
             }
         },
@@ -92,7 +108,55 @@
                     .post(this.route('login'), {
                         onFinish: () => this.form.reset('password'),
                     })
-            },
+            }
         }
     })
 </script>
+
+<style scoped>
+
+    h1{
+        font-size: 30px;
+        font-weight: bold;
+        text-shadow: 0px 4px 4px rgb(16,16,16,0.25);
+        margin-bottom: 30px;
+    }
+
+    .button-login{
+        font-size: 24px;
+        font-weight: bold;
+        margin: 30px 0;
+        text-shadow: 0px 4px 4px rgb(16,16,16,0.25);
+    }
+
+    .remember-button-content{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        text-shadow: 0px 4px 4px rgb(16,16,16,0.25);
+    }
+
+    form{
+        font-size: 24px;
+        color: #101010;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .password-forgot{
+        font-size: 14px;
+    }
+
+    header{
+        display: flex;
+        position: fixed;
+        height: 63px;
+        background: white;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+</style>
