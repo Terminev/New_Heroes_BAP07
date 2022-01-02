@@ -46,9 +46,10 @@ header{
 
 .mentions{
     width: 90%;
-    margin: 20px auto;
+    margin: 20px auto 0 auto;
     min-height: 100vh;
     text-align: center;
+    padding-bottom: 20px;
 }
 
 .mentions h3{

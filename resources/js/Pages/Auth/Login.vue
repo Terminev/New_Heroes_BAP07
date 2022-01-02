@@ -77,7 +77,7 @@
                 form: this.$inertia.form({
                     email: '',
                     password: '',
-                    remember: false
+                    remember: false,
                 })
             }
         },
@@ -92,7 +92,7 @@
                     .post(this.route('login'), {
                         onFinish: () => this.form.reset('password'),
                     })
-            }
+            },
         }
     })
 </script>

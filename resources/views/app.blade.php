@@ -25,8 +25,4 @@
     </body>
 </html>
 
-<style scoped>
-    body{
-        overflow-y: hidden;
-    }
-</style>
+
