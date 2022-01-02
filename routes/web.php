@@ -1,6 +1,7 @@
 <?php
 
 use App\Actions\Fortify\CreateNewCompany;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\MentionsLegalController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -32,3 +33,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 Route::get('/mentions_legal', [MentionsLegalController::class,"index"])->name('MentionLegale');
+
+Route::get('/faq', [FaqController::class,"index"])->name('FAQ');
