@@ -1,19 +1,47 @@
 <template>
 
-<header>
+<header id="nav">
         <img src="/storage/img/logo.png" alt="logo">
-         <label for="check">
-            <input type="checkbox" id="check"/>
+         <label for="check" id="burger" @click="Burger()">
             <span></span>
              <span></span>
             <span></span>
         </label>
+        <nav>
+            <ul>
+                <li><a href="/resources/js/Pages/Profil.vue"></a>Profil</li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </nav>
 </header>
 
 
 </template>
 
-<style scoped>
+<style>
+
+.open > nav{
+    clip-path: inset(0 0 0 0);
+}
+
+nav {
+    height: 65vh;
+    width: 45%;
+    position: fixed;
+    right: 0;
+    flex-direction: column;
+    background-color: rgb(22, 162, 228);
+    clip-path: inset(0 0 0 100%);
+    transition: 0.3s ease;
+}
+
+nav ul{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 header{
     width: 100%;
@@ -33,6 +61,7 @@ label{
   width:70px;
   cursor:pointer;
   transform: scale(0.4);
+  z-index: 1;
 }
 
 label span{
@@ -61,25 +90,21 @@ span:nth-of-type(3){
 }
 
 
-input[type="checkbox"]{
-  display:none;
-}
 
-
-input[type="checkbox"]:checked ~ span:nth-of-type(1){
+.open span:nth-of-type(1){
   transform-origin:bottom;
   transform:rotatez(45deg) translate(8px,0px)
 }
 
 
-input[type="checkbox"]:checked ~ span:nth-of-type(2){
+.open span:nth-of-type(2){
 
   transform-origin:top;
   transform:rotatez(-45deg)
 }
 
 
-input[type="checkbox"]:checked ~ span:nth-of-type(3){
+.open span:nth-of-type(3){
 
   transform-origin:bottom;
   width:50%;
@@ -89,7 +114,35 @@ input[type="checkbox"]:checked ~ span:nth-of-type(3){
 </style>
 
 
+<script>
+    export default{
+        data() {
+            return{
+                menu : 0,
 
+            }
+        },
+        methods: {
+            Burger(){
+            var nav = document.getElementById('nav')
+            console.log(nav)
+
+
+            nav.classList.toggle('open')
+
+                // if(nav.className === 'opensvg'){
+                //     nav.classList.remove('opensvg')
+
+                //  }else{
+                //     nav.classList.add('opensvg')
+                // }
+
+            // nav.classList.toggle("opensvg")
+
+            }
+        }
+    }
+</script>
 
 
 
