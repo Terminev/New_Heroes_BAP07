@@ -1,10 +1,8 @@
 <template>
-
-    <Head title="Register"/>
-
+    <Head title="Register" />
     <header>
         <img src="/storage/img/logo.png" alt="logo">
-        <img src="/storage/img/list.svg" alt="burger">
+        <img src="/storage/img/list.png" alt="burger">
     </header>
 
     <jet-authentication-card>
@@ -15,7 +13,6 @@
 
 
         <jet-validation-errors class="mb-4" />
-
 
         <form @submit.prevent="submit" v-if="!form.entreprise">
 
@@ -168,6 +165,7 @@
 
             <div class="border flex h-11 rounded">
                 <div class="containeurimage">
+
                     <img src="/storage/img/lock.png" alt="login">
                 </div>
                 <jet-input id="password_confirmation" type="password" placeholder="Password Confirmation" class="block w-full" v-model="form.password_confirmation" required autocomplete="new-password" />

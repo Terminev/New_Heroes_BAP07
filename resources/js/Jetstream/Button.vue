@@ -1,5 +1,8 @@
 <template>
-    <button :type="type" class="inline-flex items-center px-4 py-2 bg-white  rounded-md font-semibold text-xs text-black uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
+
+    <!-- J'ai enlevé le style du boutton pour en refaire un nouveau -->
+    <button :type="type" class="">
+
         <slot></slot>
     </button>
 </template>

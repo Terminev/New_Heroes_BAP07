@@ -115,16 +115,34 @@
 
 <style scoped>
 
+
     h1{
         font-size: 30px;
         font-weight: bold;
         text-shadow: 0px 4px 4px rgb(16,16,16,0.25);
+
+    header{
+        display: flex;
+        position: fixed;
+        height: 63px;
+        background: white;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 15px;
+        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.13);
+    }
+
+    h1{
+        font-size: 30px;
+        font-weight: bold;
         margin-bottom: 30px;
     }
 
     .button-login{
         font-size: 24px;
         font-weight: bold;
+
         margin: 30px 0;
         text-shadow: 0px 4px 4px rgb(16,16,16,0.25);
     }
@@ -136,6 +154,7 @@
         font-size: 18px;
         text-shadow: 0px 4px 4px rgb(16,16,16,0.25);
     }
+
 
     form{
         font-size: 24px;
@@ -149,6 +168,7 @@
         font-size: 14px;
     }
 
+
     header{
         display: flex;
         position: fixed;
@@ -158,5 +178,38 @@
         width: 100%;
         justify-content: space-between;
         padding: 0 15px;
+    }
+
+    .input-container{
+        display: flex;
+        height: 46px;
+        border-radius: 4px;
+        background: linear-gradient(#C6E3DE,#81A4D0);
+    }
+
+    .input-container .input{
+        margin: 2px 2px 2px 0px;
+    }
+
+    .img-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 31px;
+        height: auto;
+        margin: 2px;
+        background: linear-gradient(#E9F5F3,#CBD8EC);
+    }
+
+    .text-color{
+        color: #0094FF;
+    }
+
+    .remember-button-content{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        text-shadow: 0px 4px 4px rgb(16,16,16,0.25);
     }
 </style>
