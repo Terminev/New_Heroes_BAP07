@@ -6,6 +6,7 @@ use App\Http\Controllers\MentionsLegalController;
 use App\Http\Controllers\Announcement_companies_controller;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfilController;
 use Inertia\Inertia;
 
 /*
@@ -37,3 +38,5 @@ Route::get('/mentions_legal', [MentionsLegalController::class,"index"])->name('M
 Route::get('/faq', [FaqController::class,"index"])->name('FAQ');
 Route::get('/annonce', [Announcement_companies_controller::class,'index'])->name('annonce_compagnie.index');
 Route::get('/annonce/{id}', [Announcement_companies_controller::class,'show'])->name('annonce_compagnie.show');
+
+Route::get('/profil', [ProfilController::class,"index"])->name('Profil');

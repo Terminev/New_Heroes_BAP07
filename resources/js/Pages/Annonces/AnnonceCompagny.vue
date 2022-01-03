@@ -1,9 +1,8 @@
 <template>
     <div>
-        <header>
-            <img src="storage/img/logo.png" alt="logo">
-            <img src="storage/img/list.png" alt="burger">
-        </header>
+        <Header>
+
+        </Header>
         <h1>Recherche d’un sportif</h1>
         <div class="search-annonce">
             <input id="research" type="text" placeholder="Recherche..." @change="search()">
@@ -27,7 +26,11 @@
 </template>
 
 <script>
+    import Header from '@/Components/Header.vue'
     export default{
+        components:{
+            Header
+        },
         data(){
             return{
                 tab_search:this.annonces,

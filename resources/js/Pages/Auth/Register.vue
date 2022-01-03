@@ -1,9 +1,8 @@
 <template>
     <Head title="Register" />
-    <header>
-        <img src="/storage/img/logo.png" alt="logo">
-        <img src="/storage/img/list.png" alt="burger">
-    </header>
+    <Header>
+
+    </Header>
 
     <jet-authentication-card>
         <template #logo>
@@ -201,6 +200,7 @@
 </template>
 
 <script>
+    import Header from '@/Components/Header.vue'
     import { defineComponent } from 'vue'
     import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
     import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue'
@@ -213,6 +213,7 @@
 
     export default defineComponent({
         components: {
+            Header,
             Head,
             JetAuthenticationCard,
             JetAuthenticationCardLogo,
