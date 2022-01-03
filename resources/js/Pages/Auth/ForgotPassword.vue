@@ -88,6 +88,7 @@
         width: 100%;
         justify-content: space-between;
         padding: 0 15px;
+        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.13);
     }
 
     h1{

@@ -205,13 +205,15 @@ jet-input{
 }
 
 header{
-    width: 100%;
-    height: 63px;
     display: flex;
+    position: fixed;
+    height: 63px;
+    background: white;
     align-items: center;
+    width: 100%;
     justify-content: space-between;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 0 15px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.13);
 }
 
 </style>
