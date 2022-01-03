@@ -31,6 +31,13 @@ class User extends Authenticatable
         'localisation',
         'phone',
         'age',
+        'company_name',
+        'siret',
+        'number_employe',
+        'name_representing',
+        'industry',
+        'entreprise'
+
     ];
 
     /**
