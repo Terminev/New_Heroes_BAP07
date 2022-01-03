@@ -118,6 +118,10 @@
         background-color: rgba(247, 250, 252, var(--tw-bg-opacity));
     }
 
+    .bg-linear-main{
+        background: linear-gradient(#bbd9db,#8aacd1);
+    }
+
     .border-gray-200 {
         border-color: #edf2f7;
         border-color: rgba(237, 242, 247, var(--tw-border-opacity));
