@@ -6,7 +6,7 @@
         <img src="storage/img/list.png" alt="burger">
     </header>
 
-    <jet-authentication-card>
+    <jet-authentication-card class="flex justify-center">
         <h1>S'IDENTIFIER</h1>
         <template #logo>
             <jet-authentication-card-logo />
@@ -21,18 +21,18 @@
 
         <form @submit.prevent="submit">
 
-            <div class="">
+            <div class="input-container">
                 <div class="img-container">
                     <img src="/storage/img/person-circle.png" alt="login">
                 </div>
-                <jet-input id="email" type="email" class="mt-1 block w-full" placeholder="email" v-model="form.email" required autofocus />
+                <jet-input id="email" type="email" class="input block w-full" placeholder="email" v-model="form.email" required autofocus />
             </div>
 
-            <div class="">
+            <div class="input-container">
                 <div class="img-container">
                     <img src="/storage/img/lock.png" alt="login">
                 </div>
-                <jet-input id="password" type="password" class="mt-1 block w-full" placeholder="mot de passe" v-model="form.password" required autocomplete="current-password" />
+                <jet-input id="password" type="password" class="input block w-full" placeholder="mot de passe" v-model="form.password" required autocomplete="current-password" />
             </div>
 
             <jet-button class="button-login">
@@ -114,11 +114,8 @@
 
 <style scoped>
 
-
-    h1{
-        font-size: 30px;
-        font-weight: bold;
-        text-shadow: 0px 4px 4px rgb(16,16,16,0.25);
+    jet-authentication-card{
+        justify-content: center;
     }
 
     header{
