@@ -1,5 +1,8 @@
 <?php
 
+use App\Actions\Fortify\CreateNewCompany;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\MentionsLegalController;
 use App\Http\Controllers\Announcement_companies_controller;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -29,5 +32,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
+Route::get('/mentions_legal', [MentionsLegalController::class,"index"])->name('MentionLegale');
+
+Route::get('/faq', [FaqController::class,"index"])->name('FAQ');
 Route::get('/annonce', [Announcement_companies_controller::class,'index'])->name('annonce_compagnie.index');
 Route::get('/annonce/{id}', [Announcement_companies_controller::class,'show'])->name('annonce_compagnie.show');

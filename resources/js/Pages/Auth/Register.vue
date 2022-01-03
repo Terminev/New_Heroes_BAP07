@@ -1,7 +1,5 @@
 <template>
-
     <Head title="Register" />
-
     <header>
         <img src="/storage/img/logo.png" alt="logo">
         <img src="/storage/img/list.png" alt="burger">
@@ -16,62 +14,60 @@
 
         <jet-validation-errors class="mb-4" />
 
-
-        <form @submit.prevent="submit">
+        <form @submit.prevent="submit" v-if="!form.entreprise">
 
             <div class="border flex h-11 rounded">
-                <div class="img-container">
-                    <img src="/storage/img/person-circle.png" alt="login">
+                <div class="containeurimage">
+                    <img src="/storage/img/login2.png" alt="login">
                 </div>
                 <jet-input id="name" type="text" placeholder="First Name"  class="block w-full" v-model="form.name" required autofocus autocomplete="name" />
             </div>
 
             <div class="border flex h-11 rounded">
-                <div class="img-container">
-                    <img src="/storage/img/person-circle.png" alt="login">
+                <div class="containeurimage">
+                    <img src="/storage/img/login2.png" alt="login">
                 </div>
                 <jet-input id="last_name" type="text" placeholder="Last Name" class="block w-full" v-model="form.last_name" required autofocus autocomplete="name" />
             </div>
 
 
-
              <div class="border flex h-11 rounded">
-                 <div class="img-container">
+                 <div class="containeurimage">
                     <img src="/storage/img/map.png" alt="login">
                 </div>
                 <jet-input id="localisation" type="text" placeholder="Localisation" class="block w-full" v-model="form.localisation" required autofocus autocomplete="name" />
             </div>
 
              <div class="border flex h-11 rounded">
-                 <div class="img-container">
-                    <img src="/storage/img/phone.png" alt="login">
+                 <div class="containeurimage">
+                    <img src="/storage/img/telephone.png" alt="login">
                 </div>
                 <jet-input id="phone" type="number" placeholder="Phone Number" class="block w-full" v-model="form.phone" required autofocus autocomplete="name" />
             </div>
 
             <div class="border flex h-11 rounded">
-                <div class="img-container">
+                <div class="containeurimage">
                     <img src="/storage/img/@.png" alt="login">
                 </div>
                 <jet-input id="email" type="email" placeholder="E-mail" class="block w-full" v-model="form.email" required />
             </div>
 
             <div class="border flex h-11 rounded">
-                <div class="img-container">
+                <div class="containeurimage">
                     <img class="age" src="/storage/img/age-group.png" alt="login">
                 </div>
                 <jet-input id="age" type="number" placeholder="Age" class="block w-full" v-model="form.age" required autocomplete="new-password" />
             </div>
 
             <div class="border flex h-11">
-                <div class="img-container">
+                <div class="containeurimage">
                     <img src="/storage/img/lock.png" alt="login">
                 </div>
                 <jet-input id="password" type="password" placeholder="Password" class="block w-full" v-model="form.password" required autocomplete="new-password" />
             </div>
 
             <div class="border flex h-11 rounded">
-                <div class="img-container">
+                <div class="containeurimage">
                     <img src="/storage/img/lock.png" alt="login">
                 </div>
                 <jet-input id="password_confirmation" type="password" placeholder="Password Confirmation" class="block w-full" v-model="form.password_confirmation" required autocomplete="new-password" />
@@ -99,6 +95,108 @@
                 </jet-button>
             </div>
         </form>
+
+        <form @submit.prevent="submit" v-if="form.entreprise">
+
+            <div class="border flex h-11 rounded">
+                <div class="containeurimage">
+                    <img src="/storage/img/login2.png" alt="login">
+                </div>
+                <jet-input id="company_name" type="text" placeholder="Company Name"  class="block w-full" v-model="form.company_name"/>
+            </div>
+
+            <div class="border flex h-11 rounded">
+                <div class="containeurimage">
+                    <img src="/storage/img/login2.png" alt="login">
+                </div>
+                <jet-input id="siret" type="text" placeholder="Siret" class="block w-full" v-model="form.siret" autofocus />
+            </div>
+
+
+             <div class="border flex h-11 rounded">
+                 <div class="containeurimage">
+                    <img src="/storage/img/map.png" alt="login">
+                </div>
+                <jet-input id="localisation" type="text" placeholder="Localisation" class="block w-full" v-model="form.localisation" required autofocus autocomplete="name" />
+            </div>
+
+             <div class="border flex h-11 rounded">
+                 <div class="containeurimage">
+                    <img src="/storage/img/telephone.png" alt="login">
+                </div>
+                <jet-input id="phone" type="number" placeholder="Phone Number" class="block w-full" v-model="form.phone" required autofocus autocomplete="name" />
+            </div>
+
+            <div class="border flex h-11 rounded">
+                <div class="containeurimage">
+                    <img src="/storage/img/@.png" alt="login">
+                </div>
+                <jet-input id="email" type="email" placeholder="E-mail" class="block w-full" v-model="form.email" required />
+            </div>
+
+            <div class="border flex h-11 rounded">
+                <div class="containeurimage">
+                    <img class="age" src="/storage/img/age-group.png" alt="login">
+                </div>
+                <jet-input id="number_employe" type="number" placeholder="number employe" class="block w-full" v-model="form.number_employe"/>
+            </div>
+
+            <div class="border flex h-11 rounded">
+                 <div class="containeurimage">
+                    <img src="/storage/img/map.png" alt="login">
+                </div>
+                <jet-input id="name_representing" type="text" placeholder="Name representing" class="block w-full" v-model="form.name_representing"/>
+            </div>
+
+            <div class="border flex h-11 rounded">
+                 <div class="containeurimage">
+                    <img src="/storage/img/map.png" alt="login">
+                </div>
+                <jet-input id="industry" type="text" placeholder="Industry" class="block w-full" v-model="form.industry"/>
+            </div>
+
+
+            <div class="border flex h-11">
+                <div class="containeurimage">
+                    <img src="/storage/img/lock.png" alt="login">
+                </div>
+                <jet-input id="password" type="password" placeholder="Password" class="block w-full" v-model="form.password" required autocomplete="new-password" />
+            </div>
+
+            <div class="border flex h-11 rounded">
+                <div class="containeurimage">
+
+                    <img src="/storage/img/lock.png" alt="login">
+                </div>
+                <jet-input id="password_confirmation" type="password" placeholder="Password Confirmation" class="block w-full" v-model="form.password_confirmation" required autocomplete="new-password" />
+            </div>
+
+            <div class="mt-4" v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature">
+                <jet-label for="terms">
+                    <div class="flex items-center">
+                        <jet-checkbox name="terms" id="terms" v-model:checked="form.terms" />
+
+                        <div class="ml-2">
+                            I agree to the <a target="_blank" :href="route('terms.show')" class="underline text-sm text-gray-600 hover:text-gray-900">Terms of Service</a> and <a target="_blank" :href="route('policy.show')" class="underline text-sm text-gray-600 hover:text-gray-900">Privacy Policy</a>
+                        </div>
+                    </div>
+                </jet-label>
+            </div>
+
+            <div class="submit flex items-center justify-end flex-col-reverse">
+                <Link :href="route('login')" class="login underline text-sm text-black-900 hover:text-black-900">
+                    Already registered ?
+                </Link>
+
+                <jet-button class="w-full flex justify-center" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    CREATE AN ACCOUNT
+                </jet-button>
+
+
+            </div>
+        </form>
+        <input id="entreprise" type="checkbox" @change="ChangeEntreprise()" v-model="form.entreprise">
+        <label for="entreprise">Vous êtes une entreprise ?</label>
     </jet-authentication-card>
 </template>
 
@@ -138,7 +236,13 @@
                     localisation: '',
                     phone: '',
                     age: null,
-                })
+                    company_name: '',
+                    siret:'',
+                    number_employe:null,
+                    name_representing:'',
+                    industry:'',
+                    entreprise:false
+                }),
             }
         },
 
@@ -147,6 +251,14 @@
                 this.form.post(this.route('register'), {
                     onFinish: () => this.form.reset('password', 'password_confirmation'),
                 })
+                console.log(this.form)
+            },
+            ChangeEntreprise(){
+                if(this.entreprise == false) {
+                    this.entreprise = true
+                }else{
+                    this.entreprise = false
+                }
             }
         }
     })
@@ -178,7 +290,7 @@ jet-input{
     width: 257,68px;
 }
 
-.img-container{
+.containeurimage{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -205,15 +317,13 @@ jet-input{
 }
 
 header{
-    display: flex;
-    position: fixed;
-    height: 63px;
-    background: white;
-    align-items: center;
     width: 100%;
+    height: 63px;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding: 0 15px;
-    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.13);
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 </style>
