@@ -120,6 +120,7 @@
         font-size: 30px;
         font-weight: bold;
         text-shadow: 0px 4px 4px rgb(16,16,16,0.25);
+    }
 
     header{
         display: flex;
