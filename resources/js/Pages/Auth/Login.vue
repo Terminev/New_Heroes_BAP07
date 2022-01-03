@@ -26,32 +26,34 @@
                 LOGIN
             </jet-button>
 
-            <div class="">
-                <div class="img-container">
-                    <img src="/storage/img/person-circle.png" alt="login">
+            <div class="rounded">
+                <div class="input-container">
+                    <div class="img-container">
+                        <img src="/storage/img/@.png" alt="login">
+                    </div>
+                    <jet-input id="email" type="email" class="w-full input" placeholder="Adress e-email" v-model="form.email" required autofocus />
                 </div>
-                <jet-input id="email" type="email" class="mt-1 block w-full" placeholder="email" v-model="form.email" required autofocus />
             </div>
 
-            <div class="">
+            <div class="input-container">
                 <div class="img-container">
                     <img src="/storage/img/lock.png" alt="login">
                 </div>
-                <jet-input id="password" type="password" class="mt-1 block w-full" placeholder="mot de passe" v-model="form.password" required autocomplete="current-password" />
+                <jet-input id="password" type="password" class="w-full input" placeholder="mot de passe" v-model="form.password" required autocomplete="current-password" />
             </div>
 
-            <div class="block remember-button">
+            <div class="block remember-button mt-8">
                 <label class="remember-button-content">
-                    <jet-checkbox name="remember" v-model:checked="form.remember" />
-                    <span class="ml-2">Remember me</span>
+                    <jet-checkbox class="border-black" name="remember" v-model:checked="form.remember" />
+                    <span class="ml-2">Souvenez-vous de moi</span>
                 </label>
             </div>
 
             <div class="flex items-center justify-center flex-col password-forgot">
-                <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
+                <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm hover:text-gray-900">
                     Mot de passe oublié ?
                 </Link>
-                <Link v-if="canResetPassword" :href="route('register')" class="underline text-sm mt-5 text-gray-600 hover:text-gray-900">
+                <Link v-if="canResetPassword" :href="route('register')" class="text-color underline text-sm mt-2 hover:text-gray-900">
                     Vous n'avez pas de compte inscrivez-vous ?
                 </Link>
             </div>
@@ -115,27 +117,30 @@
 
 <style scoped>
 
+    header{
+        display: flex;
+        position: fixed;
+        height: 63px;
+        background: white;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+
     h1{
         font-size: 30px;
         font-weight: bold;
-        text-shadow: 0px 4px 4px rgb(16,16,16,0.25);
         margin-bottom: 30px;
     }
 
     .button-login{
         font-size: 24px;
         font-weight: bold;
-        margin: 30px 0;
+        margin: 20px 0;
         text-shadow: 0px 4px 4px rgb(16,16,16,0.25);
     }
 
-    .remember-button-content{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 18px;
-        text-shadow: 0px 4px 4px rgb(16,16,16,0.25);
-    }
 
     form{
         font-size: 24px;
@@ -148,15 +153,37 @@
     .password-forgot{
         font-size: 14px;
     }
-    
-    header{
+
+    .input-container{
         display: flex;
-        position: fixed;
-        height: 63px;
-        background: white;
+        height: 46px;
+        border-radius: 4px;
+        background: linear-gradient(#C6E3DE,#81A4D0);
+    }
+
+    .input-container .input{
+        margin: 2px 2px 2px 0px;
+    }
+
+    .img-container{
+        display: flex;
         align-items: center;
-        width: 100%;
-        justify-content: space-between;
-        padding: 0 15px;
+        justify-content: center;
+        width: 31px;
+        height: auto;
+        margin: 2px;
+        background: linear-gradient(#E9F5F3,#CBD8EC);
+    }
+
+    .text-color{
+        color: #0094FF;
+    }
+
+    .remember-button-content{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        text-shadow: 0px 4px 4px rgb(16,16,16,0.25);
     }
 </style>

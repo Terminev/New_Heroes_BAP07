@@ -1,13 +1,18 @@
 <template>
     <Head title="Forgot Password" />
 
-    <jet-authentication-card>
-        <template #logo>
-            <jet-authentication-card-logo />
-        </template>
+    <header>
+        <img src="storage/img/logo.png" alt="logo">
+        <img src="storage/img/list.png" alt="burger">
+    </header>
 
-        <div class="mb-4 text-sm text-gray-600">
-            Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.
+    <jet-authentication-card>
+        
+        <h1>Mot de passe oublié</h1>
+
+        <div class="forgot-psw-text">
+            <p>Vous avez oubliez votre mot de passe ?</p>
+            <p>Aucun problème. Il suffit de nous communiquer votre adresse mail et nous vous enverrons un lien de réinitialisation du mot de passe qui vous permettra d'en choisir un nouveau.</p>
         </div>
 
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
@@ -22,9 +27,9 @@
                 <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus />
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="button flex items-center justify-center mt-4">
                 <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Email Password Reset Link
+                    Réinitialiser votre mot de passe
                 </jet-button>
             </div>
         </form>
@@ -71,3 +76,40 @@
         }
     })
 </script>
+
+<style scoped>
+
+    header{
+        display: flex;
+        position: fixed;
+        height: 63px;
+        background: white;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+
+    h1{
+        font-size: 30px;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+    .forgot-psw-text{
+        text-align: justify;
+        max-width: 290px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding-bottom: 64px;
+    }
+
+    .button{
+        background-color: #0D6EFD;
+        border-radius: 4px;
+        padding: 12px;
+        color: white;
+    }
+
+</style>
