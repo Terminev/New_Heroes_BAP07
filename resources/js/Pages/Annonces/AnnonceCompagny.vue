@@ -1,8 +1,8 @@
 <template>
     <div>
         <header>
-            <img src="storage/img/logo.png" alt="logo">
-            <img src="storage/img/list.png" alt="burger">
+            <img src="/storage/img/logo.png" alt="logo">
+            <img src="/storage/img/list.png" alt="burger">
         </header>
         <h1>Recherche d’un sportif</h1>
         <div class="search-annonce">
@@ -70,6 +70,7 @@
         height: 63px;
         background: white;
         align-items: center;
+        max-width: 375px;
         width: 100%;
         justify-content: space-between;
         padding: 0 15px;

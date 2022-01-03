@@ -7,12 +7,10 @@
     </header>
 
     <jet-authentication-card>
-        <h1>Connexion</h1>
+        <h1>S'IDENTIFIER</h1>
         <template #logo>
             <jet-authentication-card-logo />
         </template>
-
-        <img src="storage/img/logo_login.png" alt="img logo connection">
 
         <jet-validation-errors class="mb-4" />
 
@@ -22,9 +20,6 @@
 
 
         <form @submit.prevent="submit">
-            <jet-button class="button-login">
-                LOGIN
-            </jet-button>
 
             <div class="rounded">
                 <div class="input-container">
@@ -42,6 +37,10 @@
                 <jet-input id="password" type="password" class="w-full input" placeholder="mot de passe" v-model="form.password" required autocomplete="current-password" />
             </div>
 
+            <jet-button class="button-login">
+                S'IDENTIFIER
+            </jet-button>
+
             <div class="block remember-button mt-8">
                 <label class="remember-button-content">
                     <jet-checkbox class="border-black" name="remember" v-model:checked="form.remember" />
@@ -53,8 +52,8 @@
                 <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm hover:text-gray-900">
                     Mot de passe oublié ?
                 </Link>
-                <Link v-if="canResetPassword" :href="route('register')" class="text-color underline text-sm mt-2 hover:text-gray-900">
-                    Vous n'avez pas de compte inscrivez-vous ?
+                <Link v-if="canResetPassword" :href="route('register')" class="text-sm mt-8 hover:text-gray-900">
+                    Nouveau du New Heroes ? <span class="font-bold">Inscrivez-vous</span>
                 </Link>
             </div>
         </form>
@@ -136,10 +135,11 @@
     }
 
     .button-login{
-        font-size: 24px;
-        font-weight: bold;
+        font-size: 16px;
         margin: 20px 0;
-        text-shadow: 0px 4px 4px rgb(16,16,16,0.25);
+        padding: 12px;
+        color: #f5f5f5;
+        background: #0D6EFD;
     }
 
 
@@ -176,15 +176,10 @@
         background: linear-gradient(#E9F5F3,#CBD8EC);
     }
 
-    .text-color{
-        color: #0094FF;
-    }
-
     .remember-button-content{
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 18px;
-        text-shadow: 0px 4px 4px rgb(16,16,16,0.25);
     }
 </style>
