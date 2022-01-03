@@ -16,7 +16,10 @@
             <a :href="'/annonce/'+annonce.id">
                 <img src="" alt="img profil compagnie">
                 <div>
-                    <h3>{{annonce.announcement_title}}</h3>
+                    <div class="flex justify-between pr-2">
+                        <h3>{{annonce.announcement_title}}</h3>
+                        <img src="/storage/img/favorite_heart.png" alt="favorite img">
+                    </div>
                     <h4>Nom de l'entreprise</h4>
                     <h5>{{annonce.localisation}}</h5>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus, maxime?</p>
