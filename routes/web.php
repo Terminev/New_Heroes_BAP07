@@ -1,13 +1,15 @@
 <?php
 
-use App\Actions\Fortify\CreateNewCompany;
+use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\HomeController;
+use App\Actions\Fortify\CreateNewCompany;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\MentionsLegalController;
 use App\Http\Controllers\Announcement_companies_controller;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProfilController;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +42,7 @@ Route::get('/annonce', [Announcement_companies_controller::class,'index'])->name
 Route::get('/annonce/{id}', [Announcement_companies_controller::class,'show'])->name('annonce_compagnie.show');
 
 Route::get('/profil', [ProfilController::class,"index"])->name('Profil');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
