@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Announcement_companies;
+use App\Models\Favorite;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -16,7 +17,8 @@ class Announcement_companies_controller extends Controller
     public function index()
     {
         return Inertia::render('Annonces/AnnonceCompagny', [
-            'annonces'=>Announcement_companies::all()
+            'annonces'=>Announcement_companies::all(),
+            'favories'=>Favorite::all()
         ]);
     }
 

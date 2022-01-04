@@ -5,6 +5,7 @@
         </BurgerFiltreAnnonces>
         <h1>Recherche d’un sportif</h1>
         <div class="search-annonce">
+            <img src="/storage/img/favorite_heart.png" alt="favorite img" @click="showFavorite($page.props.user.id)" v-if="$page.props.user">
             <input id="research" type="text" placeholder="Recherche..." @change="search()">
             <div class="img-container">
                 <img src="/storage/img/logo_search.png" alt="settings button">
@@ -12,7 +13,7 @@
         </div>
         <h2 id="Error">Aucun résultat trouvé</h2>
         <div class="annonces-container" v-for="annonce in tab_search" :key="annonce.id">
-            <img src="/storage/img/favorite_heart.png" alt="favorite img" @click="favorite(annonce.id, $page.props.user.id )">
+            <img src="/storage/img/favorite_heart.png" alt="favorite img" @click="favorite(annonce.id, $page.props.user.id )" v-if="$page.props.user">
             <a :href="'/annonce/'+annonce.id">
                 <img src="" alt="img profil compagnie">
                 <div>
@@ -41,7 +42,7 @@
                 form: [],
             }
         },
-        props:['annonces'],
+        props:['annonces', 'favories'],
         methods:{
             search(){
                 if(this.tab_search = []){
@@ -75,9 +76,22 @@
                 console.log(this.form[0])
 
                 this.$inertia.post(this.route('favorite.store'), this.form)
-
-
-
+            },
+            
+            showFavorite(id){
+                this.tab_search = []
+                for(var j = 0; j < this.favories.length; j++){
+                    console.log('id :')
+                    console.log(id)
+                    console.log('favorite user :')
+                    console.log(this.favories[j].users_id)
+                    if (this.favories[j].users_id == id){
+                        console.log('Je suis dans le if')
+                        this.tab_search.push(this.annonces[this.favories[j].announcement_companies_table_id - 1])
+                    }
+                }
+                console.log(this.tab_search)
+                console.log(this.annonces)
             },
         }
     }
