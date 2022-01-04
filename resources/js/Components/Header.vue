@@ -72,7 +72,7 @@ header{
 }
 
 
-label{
+#burger{
  display:flex;
   flex-direction:column;
   width:70px;
@@ -81,7 +81,7 @@ label{
   z-index: 1;
 }
 
-label span{
+#burger span{
   background: rgb(0, 0, 0);
   border-radius:10px;
   height:7px;

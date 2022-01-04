@@ -1,13 +1,17 @@
 <template>
     <div>
+        <Header>
+
+        </Header>
         <BurgerFiltreAnnonces>
 
         </BurgerFiltreAnnonces>
+
         <h1>Recherche d’un sportif</h1>
         <div class="search-annonce">
             <input id="research" type="text" placeholder="Recherche..." @change="search()">
             <div class="img-container">
-                <img src="/storage/img/logo_search.png" alt="settings button">
+                <img id="search" @click="filter()" src="/storage/img/logo_search.png" alt="settings button">
             </div>
         </div>
         <h2 id="Error">Aucun résultat trouvé</h2>
@@ -29,9 +33,12 @@
 </template>
 
 <script>
-    import BurgerFiltreAnnonces from '@/Components/BurgerFiltreAnnonces.vue'
+    import Header from '@/Components/Header.vue'
+    import BurgerFiltreAnnonces from '@/Components/BurgerFiltreAnnonces'
+
     export default{
         components:{
+            Header,
             BurgerFiltreAnnonces
         },
         data(){
@@ -70,11 +77,18 @@
             favorite(id, user_id){
                 this.form.announcement_companies_table_id = id
                 this.form.users_id = user_id
-                
+
             },
+            filter(){
+                var search = document.getElementById('search')
+                var close = document.getElementById('close')
+                var filtre = document.getElementById('filtre')
+
+                filtre.classList.toggle('open')
+
+            }
         }
     }
-
 
 </script>
 
