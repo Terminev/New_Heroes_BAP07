@@ -1,7 +1,7 @@
 <template>
 
 <header id="nav">
-        <img src="/storage/img/logo.png" alt="logo">
+         <img src="/storage/img/logo.png" alt="logo">
          <label for="check" id="burger" @click="Burger()">
             <span></span>
              <span></span>
@@ -24,6 +24,10 @@
 
 <style>
 
+/* .containeur{
+    overflow-y: hidden;
+} */
+
 .open > nav{
     clip-path: inset(0 0 0 0);
 }
@@ -35,16 +39,25 @@ nav {
     right: 0;
     top: 0;
     flex-direction: column;
-    background-color: rgb(22, 162, 228);
+    background: linear-gradient(#eaf5f3,#c9d7eb);
     clip-path: inset(0 0 0 100%);
     transition: 0.3s ease;
+    overflow-y: hidden;
 }
+
+
 
 nav ul{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 100px;
+    gap: 20px;
+}
+
+li{
+    font-weight: 600;
 }
 
 header{
@@ -129,19 +142,10 @@ span:nth-of-type(3){
         methods: {
             Burger(){
             var nav = document.getElementById('nav')
+            // var nav = document.getElementById('containeur')
             console.log(nav)
 
-
             nav.classList.toggle('open')
-
-                // if(nav.className === 'opensvg'){
-                //     nav.classList.remove('opensvg')
-
-                //  }else{
-                //     nav.classList.add('opensvg')
-                // }
-
-            // nav.classList.toggle("opensvg")
 
             }
         }
