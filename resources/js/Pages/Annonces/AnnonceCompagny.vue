@@ -1,8 +1,8 @@
 <template>
     <div>
-        <Header>
+        <BurgerFiltreAnnonces>
 
-        </Header>
+        </BurgerFiltreAnnonces>
         <h1>Recherche d’un sportif</h1>
         <div class="search-annonce">
             <input id="research" type="text" placeholder="Recherche..." @change="search()">
@@ -29,10 +29,10 @@
 </template>
 
 <script>
-    import Header from '@/Components/Header.vue'
+    import BurgerFiltreAnnonces from '@/Components/BurgerFiltreAnnonces.vue'
     export default{
         components:{
-            Header
+            BurgerFiltreAnnonces
         },
         data(){
             return{
