@@ -12,12 +12,12 @@
         </div>
         <h2 id="Error">Aucun résultat trouvé</h2>
         <div class="annonces-container" v-for="annonce in tab_search" :key="annonce.id">
+            <img src="/storage/img/favorite_heart.png" alt="favorite img" @click="favorite(annonce.id, $page.props.user.id )">
             <a :href="'/annonce/'+annonce.id">
                 <img src="" alt="img profil compagnie">
                 <div>
                     <div class="flex justify-between pr-2">
                         <h3>{{annonce.announcement_title}}</h3>
-                        <img src="/storage/img/favorite_heart.png" alt="favorite img">
                     </div>
                     <h4>Nom de l'entreprise</h4>
                     <h5>{{annonce.localisation}}</h5>
@@ -37,7 +37,11 @@
         data(){
             return{
                 tab_search:this.annonces,
-                tab_reset:[]
+                tab_reset:[],
+                form: this.$inertia.form({
+                    users_id: null,
+                    announcement_companies_table_id: null,
+                }),
             }
         },
         props:['annonces'],
@@ -61,7 +65,13 @@
                     document.getElementById('Error').style.display='none'
                 }
                 console.log(this.tab_search.length)
-            }
+            },
+
+            favorite(id, user_id){
+                this.form.announcement_companies_table_id = id
+                this.form.users_id = user_id
+                
+            },
         }
     }
 
