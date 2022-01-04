@@ -31,11 +31,11 @@
                 </div>
 
                 <jet-secondary-button class="mt-2 mr-2" type="button" @click.prevent="selectNewPhoto">
-                    Select A New Photo
+                    Nouvelle photo
                 </jet-secondary-button>
 
                 <jet-secondary-button type="button" class="mt-2" @click.prevent="deletePhoto" v-if="user.profile_photo_path">
-                    Remove Photo
+                    Supprimer la photo
                 </jet-secondary-button>
 
                 <jet-input-error :message="form.errors.photo" class="mt-2" />
