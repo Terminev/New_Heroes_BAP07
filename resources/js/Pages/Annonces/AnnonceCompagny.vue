@@ -1,9 +1,8 @@
 <template>
     <div>
-        <header>
-            <img src="storage/img/logo.png" alt="logo">
-            <img src="storage/img/list.png" alt="burger">
-        </header>
+        <Header>
+
+        </Header>
         <h1>Recherche d’un sportif</h1>
         <div class="search-annonce">
             <input id="research" type="text" placeholder="Recherche..." @change="search()">
@@ -16,7 +15,10 @@
             <a :href="'/annonce/'+annonce.id">
                 <img src="" alt="img profil compagnie">
                 <div>
-                    <h3>{{annonce.announcement_title}}</h3>
+                    <div class="flex justify-between pr-2">
+                        <h3>{{annonce.announcement_title}}</h3>
+                        <img src="/storage/img/favorite_heart.png" alt="favorite img">
+                    </div>
                     <h4>Nom de l'entreprise</h4>
                     <h5>{{annonce.localisation}}</h5>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus, maxime?</p>
@@ -27,7 +29,11 @@
 </template>
 
 <script>
+    import Header from '@/Components/Header.vue'
     export default{
+        components:{
+            Header
+        },
         data(){
             return{
                 tab_search:this.annonces,
@@ -70,6 +76,7 @@
         height: 63px;
         background: white;
         align-items: center;
+        max-width: 375px;
         width: 100%;
         justify-content: space-between;
         padding: 0 15px;

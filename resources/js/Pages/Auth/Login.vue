@@ -6,13 +6,11 @@
         <img src="storage/img/list.png" alt="burger">
     </header>
 
-    <jet-authentication-card>
-        <h1>Connexion</h1>
+    <jet-authentication-card class="flex justify-center">
+        <h1>S'IDENTIFIER</h1>
         <template #logo>
             <jet-authentication-card-logo />
         </template>
-
-        <img src="storage/img/logo_login.png" alt="img logo connection">
 
         <jet-validation-errors class="mb-4" />
 
@@ -22,25 +20,26 @@
 
 
         <form @submit.prevent="submit">
-            <jet-button class="button-login">
-                LOGIN
-            </jet-button>
 
-            <div class="">
+            <div class="input-container">
                 <div class="img-container">
                     <img src="/storage/img/person-circle.png" alt="login">
                 </div>
-                <jet-input id="email" type="email" class="mt-1 block w-full" placeholder="email" v-model="form.email" required autofocus />
+                <jet-input id="email" type="email" class="input block w-full" placeholder="email" v-model="form.email" required autofocus />
             </div>
 
-            <div class="">
+            <div class="input-container">
                 <div class="img-container">
                     <img src="/storage/img/lock.png" alt="login">
                 </div>
-                <jet-input id="password" type="password" class="mt-1 block w-full" placeholder="mot de passe" v-model="form.password" required autocomplete="current-password" />
+                <jet-input id="password" type="password" class="input block w-full" placeholder="mot de passe" v-model="form.password" required autocomplete="current-password" />
             </div>
 
-            <div class="block remember-button">
+            <jet-button class="button-login">
+                S'IDENTIFIER
+            </jet-button>
+
+            <div class="block remember-button mt-8">
                 <label class="remember-button-content">
                     <jet-checkbox name="remember" v-model:checked="form.remember" />
                     <span class="ml-2">Remember me</span>
@@ -51,8 +50,8 @@
                 <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
                     Mot de passe oublié ?
                 </Link>
-                <Link v-if="canResetPassword" :href="route('register')" class="underline text-sm mt-5 text-gray-600 hover:text-gray-900">
-                    Vous n'avez pas de compte inscrivez-vous ?
+                <Link v-if="canResetPassword" :href="route('register')" class="text-sm mt-8 hover:text-gray-900">
+                    Nouveau du New Heroes ? <span class="font-bold">Inscrivez-vous</span>
                 </Link>
             </div>
         </form>
@@ -115,11 +114,9 @@
 
 <style scoped>
 
-
-    h1{
-        font-size: 30px;
-        font-weight: bold;
-        text-shadow: 0px 4px 4px rgb(16,16,16,0.25);
+    jet-authentication-card{
+        justify-content: center;
+    }
 
     header{
         display: flex;
@@ -140,11 +137,11 @@
     }
 
     .button-login{
-        font-size: 24px;
-        font-weight: bold;
-
-        margin: 30px 0;
-        text-shadow: 0px 4px 4px rgb(16,16,16,0.25);
+        font-size: 16px;
+        margin: 20px 0;
+        padding: 12px;
+        color: #f5f5f5;
+        background: #0D6EFD;
     }
 
     .remember-button-content{
@@ -201,15 +198,10 @@
         background: linear-gradient(#E9F5F3,#CBD8EC);
     }
 
-    .text-color{
-        color: #0094FF;
-    }
-
     .remember-button-content{
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 18px;
-        text-shadow: 0px 4px 4px rgb(16,16,16,0.25);
     }
 </style>
