@@ -38,10 +38,7 @@
             return{
                 tab_search:this.annonces,
                 tab_reset:[],
-                form: this.$inertia.form({
-                    users_id: null,
-                    announcement_companies_table_id: null,
-                }),
+                form: [],
             }
         },
         props:['annonces'],
@@ -68,9 +65,19 @@
             },
 
             favorite(id, user_id){
-                this.form.announcement_companies_table_id = id
-                this.form.users_id = user_id
-                
+                // this.form.announcement_companies_table_id = id
+                // this.form.users_id = user_id
+                this.form = []
+                this.form.push({
+                    'users_id':user_id,
+                    'announcement_companies_table_id': id,
+                })
+                console.log(this.form[0])
+
+                this.$inertia.post(this.route('favorite.store'), this.form)
+
+
+
             },
         }
     }

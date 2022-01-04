@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Favorite;
 use Illuminate\Http\Request;
 
 class FavoriteController extends Controller
@@ -34,7 +35,9 @@ class FavoriteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Favorite::create($request[0]);
+
+        return redirect()->route('annonce_compagnie.index');
     }
 
     /**
