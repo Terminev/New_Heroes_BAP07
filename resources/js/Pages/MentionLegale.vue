@@ -1,15 +1,9 @@
 <template>
 
 <div class="mentions-legals-containeur">
-<header>
-        <img src="/storage/img/logo.png" alt="logo">
-         <label for="check">
-            <input type="checkbox" id="check"/>
-            <span></span>
-             <span></span>
-            <span></span>
-        </label>
-</header>
+<Header>
+
+</Header>
 
 
 <div class="mentions">
@@ -39,16 +33,6 @@
 
 <style scoped>
 
-header{
-    width: 100%;
-    height: 63px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 15px;
-    padding-right: 15px;
-    background-color: white;
-}
 
 .mentions{
     width: 90%;
@@ -142,3 +126,11 @@ input[type="checkbox"]:checked ~ span:nth-of-type(3){
 
 
 </style>
+<script>
+    import Header from '@/Components/Header.vue'
+    export default{
+        components: {
+        Header
+        },
+}
+</script>

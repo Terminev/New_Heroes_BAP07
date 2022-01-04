@@ -3,9 +3,132 @@
         <Header>
 
         </Header>
-        <BurgerFiltreAnnonces>
+        <section id="filtre">
+            <div class="contain-button">
+                <button>
+                    Réinitialiser
+                </button>
+                <img class="close" id="close" @click="filterClose()" src="/storage/img/close.png" alt="close">
+            </div>
+            <div class="group-contain">
+                <div class="contain-title-logos">
+                    <div class="title-logo">
+                        <img class="logos-annonces" src="/storage/img/annonces.png" alt="annonces">
+                        <h2>
+                            Domaine d'activité
+                        </h2>
+                    </div>
+                    <p>-</p>
+                </div>
+                <div class="contains-input">
+                    <input type="text" placeholder="Domaine d'activité">
+                    <div class="bloc-plus">
+                        <img src="/storage/img/add.png" alt="+">
+                    </div>
+                </div>
+                <div class="contain-button">
+                    <button>
+                        Réinitialiser
+                    </button>
+                </div>
+            </div>
+            <div class="group-contain">
+                <div class="contain-title-logos">
+                    <div class="title-logo">
+                        <img class="logos-annonces" src="/storage/img/Formation.png" alt="formations">
+                        <h2>
+                            Formations
+                        </h2>
+                    </div>
+                    <p>-</p>
+                </div>
+                <div class="contains-input">
+                    <input type="text" placeholder="Formations">
+                </div>
+                 <div class="contain-button">
+             <button>
+                Réinitialiser
+            </button>
+            </div>
+            </div>
 
-        </BurgerFiltreAnnonces>
+            <div class="group-contain">
+                <div class="contain-title-logos">
+                    <div class="title-logo">
+                        <img class="logos-annonces" src="/storage/img/etudes.png" alt="etudes">
+                        <h2>
+                            Niveaux d'études
+                        </h2>
+                    </div>
+                    <p>-</p>
+                </div>
+                <div class="contains-input">
+                    <input type="text" placeholder="Niveaux d'études">
+                </div>
+                 <div class="contain-button">
+            <button>
+                Réinitialiser
+            </button>
+            </div>
+            </div>
+
+            <div class="group-contain">
+                <div class="contain-title-logos">
+                    <div class="title-logo">
+                        <img class="logos-annonces" src="/storage/img/mention-legal.png" alt="mention-legal">
+                        <h2>
+                            Localisations
+                        </h2>
+                    </div>
+                    <p>-</p>
+                </div>
+                <div class="contains-input">
+                    <input type="text" placeholder="Ville">
+                    <div class="bloc-plus">
+                        <img src="/storage/img/add.png" alt="+">
+                    </div>
+                </div>
+                <div class="contains-range">
+                    <input class="range" type="range">
+                </div>
+                 <div class="contain-button">
+            <button>
+                Réinitialiser
+            </button>
+            </div>
+            </div>
+
+            <div class="group-contain">
+                <div class="contain-title-logos">
+                    <div class="title-logo">
+                        <img class="logos-annonces" src="/storage/img/salaire.png" alt="salaire">
+                        <h2>
+                            Salaire
+                        </h2>
+                    </div>
+                    <p>-</p>
+                </div>
+                <div class="contain-input-price">
+                    <input class="input-price" type="number" placeholder="Min">
+                    <input class="input-price" type="number" placeholder="Max">
+                </div>
+            </div>
+
+            <div class="group-contain">
+                <div class="contain-title-logos">
+                    <div class="title-logo">
+                        <img class="logos-annonces" src="/storage/img/faq.png" alt="sport">
+                        <input type="text" placeholder="Sport Pratiqués">
+                    </div>
+                    <p>-</p>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
 
         <h1>Recherche d’un sportif</h1>
         <div class="search-annonce">
@@ -30,25 +153,27 @@
             </a>
         </div>
     </div>
+
+
+
+
+
 </template>
 
 <script>
     import Header from '@/Components/Header.vue'
-    import BurgerFiltreAnnonces from '@/Components/BurgerFiltreAnnonces'
+    // import BurgerFiltreAnnonces from '@/Components/BurgerFiltreAnnonces'
 
     export default{
         components:{
             Header,
-            BurgerFiltreAnnonces
+            // BurgerFiltreAnnonces
         },
         data(){
             return{
                 tab_search:this.annonces,
                 tab_reset:[],
-                form: this.$inertia.form({
-                    users_id: null,
-                    announcement_companies_table_id: null,
-                }),
+                form: [],
             }
         },
         props:['annonces'],
@@ -75,17 +200,32 @@
             },
 
             favorite(id, user_id){
-                this.form.announcement_companies_table_id = id
-                this.form.users_id = user_id
+                // this.form.announcement_companies_table_id = id
+                // this.form.users_id = user_id
+                this.form = []
+                this.form.push({
+                    'users_id':user_id,
+                    'announcement_companies_table_id': id,
+                })
+                console.log(this.form[0])
+
+                this.$inertia.post(this.route('favorite.store'), this.form)
+
+
 
             },
             filter(){
-                var search = document.getElementById('search')
-                var close = document.getElementById('close')
                 var filtre = document.getElementById('filtre')
 
-                filtre.classList.toggle('open')
+                filtre.classList.add('open-filter')
 
+
+
+            },
+            filterClose(){
+                var filtre = document.getElementById('filtre')
+
+                filtre.classList.remove('open-filter')
             }
         }
     }
@@ -198,4 +338,164 @@
     .annonces-container div{
         padding-left: 8px;
     }
+
+
+
+
+
+
+    .contains-range {
+        display: flex;
+        justify-content: center;
+    }
+
+    .range {
+        height: 2px;
+        width: 80%;
+    }
+
+    .logos-annonces {
+        width: 15px;
+        height: 15px;
+    }
+
+    .contains-input {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    input {
+        border-radius: 4px;
+        border-color: #9080fd;
+    }
+
+    .bloc-plus {
+        width: 26px;
+        height: 26px;
+        border-radius: 2px;
+        background-color: #001598;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+.open-filter{
+    clip-path: inset(0 0 0 0)!important;
+}
+
+
+
+    .close{
+        position: absolute;
+        right: 20px;
+    }
+
+    .contain-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 15px 0 auto;
+    }
+
+    button {
+        color: rgba(0, 21, 152, 1);
+        border: 1px solid rgba(0, 21, 152, 1);
+        border-radius: 4px;
+        width: 104px;
+    }
+
+    .group-contain {
+        margin: 30px auto;
+    }
+
+    .contain-input-price {
+        display: flex;
+        justify-content: space-around;
+        padding-top: 15px;
+    }
+
+    .input-price {
+        width: 107px;
+        height: 22px;
+        border-color: #878f95;
+    }
+
+    input::placeholder {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contains-range {
+        display: flex;
+        justify-content: center;
+    }
+
+    .range {
+        height: 2px;
+        width: 80%;
+        margin: 30px auto;
+    }
+
+    .logos-annonces {
+        width: 15px;
+        height: 15px;
+    }
+
+    .contains-input {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        padding-top: 15px;
+    }
+
+    input {
+        border-radius: 4px;
+        border-color: #9080fd;
+    }
+
+    .bloc-plus {
+        width: 26px;
+        height: 26px;
+        border-radius: 2px;
+        background-color: #001598;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contain-title-logos {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        margin: 0 auto;
+        align-items: center;
+    }
+
+    .title-logo {
+        padding-left: 10px;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
+
+
+
+    #filtre {
+        min-height: 100vh;
+        width: 100%;
+        position: fixed;
+        right: 0;
+        top: 63px;
+        flex-direction: column;
+        background-color: #f5f5f5;
+        clip-path: inset(0 0 0 100%);
+        transition: 0.3s ease;
+        z-index: 0;
+        /* overflow-y: hidden; */
+    }
+
 </style>

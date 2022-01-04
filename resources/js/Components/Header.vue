@@ -4,7 +4,7 @@
          <img src="/storage/img/logo.png" alt="logo">
          <label for="check" id="burger" @click="Burger()">
             <span></span>
-             <span></span>
+            <span></span>
             <span></span>
         </label>
         <nav>
@@ -43,6 +43,7 @@ nav {
     clip-path: inset(0 0 0 100%);
     transition: 0.3s ease;
     overflow-y: hidden;
+    z-index: 500;
 }
 
 
@@ -78,7 +79,7 @@ header{
   width:70px;
   cursor:pointer;
   transform: scale(0.4);
-  z-index: 1;
+  z-index: 600;
 }
 
 #burger span{

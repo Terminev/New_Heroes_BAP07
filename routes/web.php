@@ -4,6 +4,7 @@ use App\Actions\Fortify\CreateNewCompany;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\MentionsLegalController;
 use App\Http\Controllers\Announcement_companies_controller;
+use App\Http\Controllers\FavoriteController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfilController;
@@ -37,6 +38,9 @@ Route::get('/mentions_legal', [MentionsLegalController::class,"index"])->name('M
 
 Route::get('/faq', [FaqController::class,"index"])->name('FAQ');
 Route::get('/annonce', [Announcement_companies_controller::class,'index'])->name('annonce_compagnie.index');
+Route::post('/annonce', [Announcement_companies_controller::class,'store'])->name('annonce_compagnie.store');
+Route::post('/annonce', [FavoriteController::class,'store'])->name('favorite.store');
+
 Route::get('/annonce/{id}', [Announcement_companies_controller::class,'show'])->name('annonce_compagnie.show');
 
 Route::get('/profil', [ProfilController::class,"index"])->name('Profil');
