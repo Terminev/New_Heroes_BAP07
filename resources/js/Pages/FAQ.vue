@@ -9,7 +9,7 @@
 <img class="faqimg" src="/storage/img/faq-img.png" alt="faq-img">
 
 <h1>
-    FAQ
+    FAQ {{$page.props.user.id}}
 </h1>
 
 <section class="question">
@@ -45,7 +45,7 @@
 </div>
 
 
-<div class="containeur">
+<div class="containeur" >
     <div class="question-title" @click="Accordeon(3)" id="question3" >
         <h2>
             Question 3 ?
@@ -68,7 +68,7 @@
         <img src="/storage/img/plus.png" alt="plus">
     </div>
     <div class="question-reponse" id="reponse4" style="display:none; ">
-        <p>
+        <p @click="test()">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus itaque id impedit voluptatem maiores reprehenderit esse dignissimos quaerat, dicta voluptates in ratione mollitia suscipit optio libero iure molestiae. Corporis, tempora.
         </p>
     </div>
@@ -169,6 +169,11 @@ h1{
         },
 
         methods: {
+            test(){
+                console.log("test");
+                
+                console.log(id);
+            },
             Accordeon(id){
                 if(id == 1){
                     var question = document.getElementById('question1')
