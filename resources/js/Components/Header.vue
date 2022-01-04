@@ -9,10 +9,12 @@
         </label>
         <nav>
             <ul>
-                <li><a href="/resources/js/Pages/Profil.vue"></a>Profil</li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li><a href="/annonce">Annonces</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a href="/mentions_legal">Mentions Légal</a></li>
+                <li><a href=""></a>Modifications Sportif</li>
+                <li><a href=""></a>Filtres</li>
+                <li><a href="">Entreprise Favorites</a></li>
             </ul>
         </nav>
 </header>
@@ -27,10 +29,11 @@
 }
 
 nav {
-    height: 65vh;
-    width: 45%;
+    height: 100vh;
+    width: 100%;
     position: fixed;
     right: 0;
+    top: 0;
     flex-direction: column;
     background-color: rgb(22, 162, 228);
     clip-path: inset(0 0 0 100%);
@@ -38,6 +41,7 @@ nav {
 }
 
 nav ul{
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
