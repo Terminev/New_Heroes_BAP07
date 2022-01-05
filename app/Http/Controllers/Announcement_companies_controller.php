@@ -29,7 +29,7 @@ class Announcement_companies_controller extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Annonces/AnnonceCompagnyCreate');
     }
 
     /**

@@ -41,6 +41,8 @@ Route::get('/annonce', [Announcement_companies_controller::class,'index'])->name
 Route::post('/annonce', [Announcement_companies_controller::class,'store'])->name('annonce_compagnie.store');
 Route::post('/annonce', [FavoriteController::class,'store'])->name('favorite.store');
 
+Route::post('/annonce/create', [Announcement_companies_controller::class,'create'])->name('annonce_compagnie.create');
+
 Route::get('/annonce/{id}', [Announcement_companies_controller::class,'show'])->name('annonce_compagnie.show');
 
 Route::get('/profil', [ProfilController::class,"index"])->name('Profil');

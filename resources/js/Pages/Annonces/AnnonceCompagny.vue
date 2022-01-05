@@ -3,6 +3,10 @@
         <Header>
 
         </Header>
+
+
+        <!-- Le systeme de filtre des annonces  -->
+
         <section id="filtre">
             <div class="contain-button">
                 <button>
@@ -45,11 +49,11 @@
                 <div class="contains-input">
                     <input type="text" placeholder="Formations">
                 </div>
-                 <div class="contain-button">
-             <button>
-                Réinitialiser
-            </button>
-            </div>
+                <div class="contain-button">
+                    <button>
+                        Réinitialiser
+                    </button>
+                </div>
             </div>
 
             <div class="group-contain">
@@ -65,11 +69,11 @@
                 <div class="contains-input">
                     <input type="text" placeholder="Niveaux d'études">
                 </div>
-                 <div class="contain-button">
-            <button>
-                Réinitialiser
-            </button>
-            </div>
+                <div class="contain-button">
+                    <button>
+                        Réinitialiser
+                    </button>
+                </div>
             </div>
 
             <div class="group-contain">
@@ -91,11 +95,11 @@
                 <div class="contains-range">
                     <input class="range" type="range">
                 </div>
-                 <div class="contain-button">
-            <button>
-                Réinitialiser
-            </button>
-            </div>
+                <div class="contain-button">
+                    <button>
+                        Réinitialiser
+                    </button>
+                </div>
             </div>
 
             <div class="group-contain">
@@ -127,20 +131,28 @@
 
 
 
-
+        <!-- Le contenu de la page annonce -->
 
 
         <h1>Recherche d’un sportif</h1>
         <div class="search-annonce">
-            <img src="/storage/img/favorite_heart.png" alt="favorite img" @click="showFavorite($page.props.user.id)" v-if="$page.props.user">
+            <img src="/storage/img/favorite_heart.png" alt="favorite img" @click="showFavorite($page.props.user.id)"
+                v-if="$page.props.user">
             <input id="research" type="text" placeholder="Recherche..." @change="search()">
             <div class="img-container">
                 <img id="search" @click="filter()" src="/storage/img/logo_search.png" alt="settings button">
             </div>
         </div>
+
+        <div class="add-annonce">
+            <a :href="'/annonce/create'">Ajouter une annonce</a>
+        </div>
+
         <h2 id="Error">Aucun résultat trouvé</h2>
+
         <div class="annonces-container" v-for="annonce in tab_search" :key="annonce.id">
-            <img src="/storage/img/favorite_heart.png" alt="favorite img" @click="favorite(annonce.id, $page.props.user.id )" v-if="$page.props.user">
+            <img src="/storage/img/favorite_heart.png" alt="favorite img"
+                @click="favorite(annonce.id, $page.props.user.id )" v-if="$page.props.user">
             <a :href="'/annonce/'+annonce.id">
                 <img src="" alt="img profil compagnie">
                 <div>
@@ -165,62 +177,62 @@
     import Header from '@/Components/Header.vue'
     // import BurgerFiltreAnnonces from '@/Components/BurgerFiltreAnnonces'
 
-    export default{
-        components:{
+    export default {
+        components: {
             Header,
             // BurgerFiltreAnnonces
         },
-        data(){
-            return{
-                tab_search:this.annonces,
-                tab_reset:[],
+        data() {
+            return {
+                tab_search: this.annonces,
+                tab_reset: [],
                 form: [],
             }
         },
-        props:['annonces', 'favories'],
-        methods:{
-            search(){
-                if(this.tab_search = []){
+        props: ['annonces', 'favories'],
+        methods: {
+            search() {
+                if (this.tab_search = []) {
                     this.tab_search = this.annonces
                 }
                 this.tab_reset = this.tab_search
                 this.tab_search = []
                 var param_search = document.getElementById('research').value.toUpperCase()
-                for(var i = 0; i<this.tab_reset.length; i++){
-                    if (this.tab_reset[i].announcement_title.toUpperCase() == param_search){
+                for (var i = 0; i < this.tab_reset.length; i++) {
+                    if (this.tab_reset[i].announcement_title.toUpperCase() == param_search) {
                         this.tab_search.push(this.tab_reset[i])
                     }
                 }
-                if(this.tab_search.length == 0){
-                    document.getElementById('Error').style.display='flex'
-                    this.tab_search=this.annonces
-                }else{
-                    document.getElementById('Error').style.display='none'
+                if (this.tab_search.length == 0) {
+                    document.getElementById('Error').style.display = 'flex'
+                    this.tab_search = this.annonces
+                } else {
+                    document.getElementById('Error').style.display = 'none'
                 }
                 console.log(this.tab_search.length)
             },
 
-            favorite(id, user_id){
+            favorite(id, user_id) {
                 // this.form.announcement_companies_table_id = id
                 // this.form.users_id = user_id
                 this.form = []
                 this.form.push({
-                    'users_id':user_id,
+                    'users_id': user_id,
                     'announcement_companies_table_id': id,
                 })
                 console.log(this.form[0])
 
                 this.$inertia.post(this.route('favorite.store'), this.form)
             },
-            
-            showFavorite(id){
+
+            showFavorite(id) {
                 this.tab_search = []
-                for(var j = 0; j < this.favories.length; j++){
+                for (var j = 0; j < this.favories.length; j++) {
                     console.log('id :')
                     console.log(id)
                     console.log('favorite user :')
                     console.log(this.favories[j].users_id)
-                    if (this.favories[j].users_id == id){
+                    if (this.favories[j].users_id == id) {
                         console.log('Je suis dans le if')
                         this.tab_search.push(this.annonces[this.favories[j].announcement_companies_table_id - 1])
                     }
@@ -228,15 +240,15 @@
                 console.log(this.tab_search)
                 console.log(this.annonces)
             },
-            filter(){
+
+
+            filter() {
                 var filtre = document.getElementById('filtre')
 
                 filtre.classList.add('open-filter')
 
-
-
             },
-            filterClose(){
+            filterClose() {
                 var filtre = document.getElementById('filtre')
 
                 filtre.classList.remove('open-filter')
@@ -248,60 +260,47 @@
 
 <style scoped>
 
-    header{
-        display: flex;
-        position: fixed;
-        height: 63px;
-        background: white;
-        align-items: center;
-        max-width: 375px;
-        width: 100%;
-        justify-content: space-between;
-        padding: 0 15px;
-        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.13);
-    }
-
-    h1{
-        padding-top: 79px;
+    h1 {
+        padding-top: 25px;
         padding-bottom: 16px;
         font-size: 24px;
         font-weight: bold;
         text-align: center;
     }
 
-    h3{
+    h3 {
         font-size: 20px;
         font-weight: bold;
     }
 
-    h4{
+    h4 {
         font-size: 16px;
         color: #0094FF;
     }
 
-    h5{
+    h5 {
         font-size: 14px;
         font-weight: 600;
         padding-top: 4px;
     }
 
-    p{
+    p {
         font-size: 14px;
         padding-top: 4px;
     }
 
-    .search-annonce{
+    .search-annonce {
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .search-annonce span{
+    .search-annonce span {
         max-width: 194px;
         width: 100%;
     }
 
-    .img-container{
+    .img-container {
         background-color: #001598;
         height: 34px;
         width: 34px;
@@ -312,13 +311,13 @@
         margin-left: 8px;
     }
 
-    .img-container img{
+    .img-container img {
         object-fit: contain;
         max-width: 123px;
         width: 100%;
     }
 
-    #Error{
+    #Error {
         display: none;
         justify-content: center;
         align-items: center;
@@ -326,30 +325,30 @@
         font-weight: bold;
     }
 
-    .annonces-container{
+    .annonces-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin: 16px 14px;
+        margin: 16px auto;
         max-width: 348px;
         width: 100%;
         border-radius: 3px;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
     }
 
-    .annonces-container a{
+    .annonces-container a {
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    .annonces-container img{
+    .annonces-container img {
         border-radius: 3px;
         object-fit: contain;
     }
 
-    .annonces-container div{
+    .annonces-container div {
         padding-left: 8px;
     }
 
@@ -395,13 +394,13 @@
         justify-content: center;
     }
 
-.open-filter{
-    clip-path: inset(0 0 0 0)!important;
-}
+    .open-filter {
+        clip-path: inset(0 0 0 0) !important;
+    }
 
 
 
-    .close{
+    .close {
         position: absolute;
         right: 20px;
     }
