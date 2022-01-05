@@ -52,16 +52,17 @@ nav {
 
 
 nav ul{
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
     gap: 20px;
 }
 
 li{
     font-weight: 600;
+    font-size: 25px;
 }
 
 header{
