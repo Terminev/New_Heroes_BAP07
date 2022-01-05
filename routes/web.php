@@ -42,6 +42,7 @@ Route::post('/annonce', [Announcement_companies_controller::class,'store'])->nam
 Route::post('/annonce', [FavoriteController::class,'store'])->name('favorite.store');
 
 Route::get('/annonce/create', [Announcement_companies_controller::class,'create'])->name('annonce_compagnie.create');
+Route::post('/annonce/create', [Announcement_companies_controller::class,'store'])->name('annonce_compagnie.store');
 
 Route::get('/annonce/{id}', [Announcement_companies_controller::class,'show'])->name('annonce_compagnie.show');
 

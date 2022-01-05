@@ -25,7 +25,7 @@
         <div class="annonce-content">
             <div>
                 <h3>Type de contrat :</h3>
-                <p>{{annonces.type_of_contract}} - {{annonces.time_work}}</p>
+                <p>{{annonces.type_of_contract}} - {{annonces.time_work}}h / semaine</p>
             </div>
             <div>
                 <h3>Service :</h3>
@@ -33,7 +33,7 @@
             </div>
             <div>
                 <h3>Temps de travail :</h3>
-                <p>{{annonces.time_work}}</p>
+                <p>{{annonces.time_work}}h / semaine</p>
             </div>
             <div>
                 <h3>Nombre de post ouvert :</h3>

@@ -23,6 +23,12 @@
                 </div>
 
                 <div class="h-11 mt-8 mb-8">
+                    <h3>Où se situe votre entreprise:</h3>
+                    <jet-input id="localisation" type="text" placeholder="localisation" class="block w-full"
+                        v-model="form.localisation" required autofocus autocomplete="localisation" />
+                </div>
+
+                <div class="h-11 mt-8 mb-8">
                     <h3>Domaine d'activité :</h3>
                     <jet-input id="domaine" type="text" placeholder="Dans quelle domaine vous cherchez"
                         class="block w-full" v-model="form.domaine" required autofocus autocomplete="domaine" />
@@ -50,7 +56,7 @@
                 <div class="h-11 mt-8 mb-8">
                     <!-- Il faudra changer cette input pour mettre le truc html où on peut styliser directement dans le site  -->
                     <h3>Déscription du post :</h3>
-                    <jet-input id="announcement_description" type="text"
+                    <jet-input id="announcement_description" type="textarea"
                         placeholder="Inscrivez ici tous ce qui vous passe par la tête" class="block w-full"
                         v-model="form.announcement_description" required autofocus
                         autocomplete="announcement_description" />
@@ -95,25 +101,58 @@
             JetValidationErrors,
         },
 
+        props:['user'],
+
         data() {
             return {
-                form: this.$inertia.form({
-                    announcement_title: '',
-                    domaine: '',
-                    localisation: '',
-                    announcement_description: '',
-                    pay: '',
-                    type_of_contract: '',
-                    time_work: '',
-                    number_of_jobs: '',
-                }),
+                form: [],
+                // this.$inertia.form({
+                //     compagnies_id: this.user.id,
+                //     announcement_title: '',
+                //     domaine: '',
+                //     localisation: '',
+                //     announcement_description: '',
+                //     pay: '',
+                //     type_of_contract: '',
+                //     time_work: '',
+                //     number_of_jobs: '',
+                // })
             }
         },
 
         methods: {
+            
             submit() {
+
+                this.form = []
+                
+                var compagnies_id = this.user.id
+                var announcement_title = document.getElementById('announcement_title').value
+                var domaine = document.getElementById('domaine').value
+                var localisation = document.getElementById('localisation').value
+                var announcement_description = document.getElementById('announcement_description').value
+                var pay = document.getElementById('pay').value
+                var type_of_contract = document.getElementById('type_of_contract').value
+                var time_work = document.getElementById('time_work').value
+                var number_of_jobs = document.getElementById('number_of_jobs').value
+                
                 console.log(this.form)
-                this.$inertia.get(this.route('annonce_compagnie.create'), this.form)
+
+                this.form.push({
+                    'compagnies_id': compagnies_id,
+                    'announcement_title': announcement_title,
+                    'domaine': domaine,
+                    'localisation': localisation,
+                    'announcement_description': announcement_description,
+                    'pay': pay,
+                    'type_of_contract': type_of_contract,
+                    'time_work': time_work,
+                    'number_of_jobs': number_of_jobs,
+                })
+                
+                console.log(this.form)
+
+                this.$inertia.post(this.route('annonce_compagnie.store'), this.form)
             }
         }
 
