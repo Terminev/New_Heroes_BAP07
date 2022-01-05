@@ -9,17 +9,15 @@
         </label>
         <nav>
             <ul>
+                <li v-if="!$page.props.user"><a href="/register">Inscription</a></li>
+                <li v-if="!$page.props.user"><a href="/login">Connexion</a></li>
                 <li><a href="/annonce">Annonces</a></li>
                 <li><a href="/faq">FAQ</a></li>
                 <li><a href="/mentions_legal">Mentions Légal</a></li>
                 <li><a href=""></a>Modifications Sportif</li>
-                <li><a href=""></a>Filtres</li>
                 <li><a href="">Entreprise Favorites</a></li>
-                <li><form @submit.prevent="logout()">
-                                            <jet-dropdown-link as="button">
-                                                Log Out
-                                            </jet-dropdown-link>
-                                        </form></li>
+                <li v-if="$page.props.user"><a href="" @click="logout()">Deconnexion</a></li>
+
             </ul>
         </nav>
 </header>
@@ -156,7 +154,10 @@ span:nth-of-type(3){
 
             },
             logout(){
-               this.$inertia.post(route('logout'));
+                this.$inertia.post(route('logout'));
+
+
+
             }
         }
     }

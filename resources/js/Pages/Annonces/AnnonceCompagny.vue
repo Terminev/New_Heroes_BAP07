@@ -20,6 +20,7 @@
                     </div>
                     <p>-</p>
                 </div>
+                
                 <div class="contains-input">
                     <input type="text" placeholder="Domaine d'activité">
                     <div class="bloc-plus">
@@ -212,7 +213,7 @@
 
                 this.$inertia.post(this.route('favorite.store'), this.form)
             },
-            
+
             showFavorite(id){
                 this.tab_search = []
                 for(var j = 0; j < this.favories.length; j++){
