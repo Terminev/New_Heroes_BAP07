@@ -9,8 +9,11 @@
             <div class="annonce-header-text">
                 <h1>Nom de l'entreprise</h1>
                 <h2>{{annonces.localisation}}</h2>
-                <jet-button class="button-post">
+                <jet-button class="button-post background-blue">
                     POSTULER
+                </jet-button>
+                <jet-button v-if="user.id == annonces.compagnies_id" class="button-post background-red" @click="Delete">
+                    Supprimer L'annonce
                 </jet-button>
             </div>
             <div class="annonce-header-img">
@@ -52,7 +55,15 @@
 
 <script>
     export default {
-        props: ['annonces']
+        props: ['annonces', 'user'],
+
+        methods: {
+            Delete(){
+                var id = this.annonces.id
+                console.log(id)
+                this.$inertia.post(this.route('annonce_compagnie.destroy'), id)
+            }
+        }
     }
 
 </script>
@@ -105,10 +116,17 @@
         padding: 6px 43px;
         margin-top: 8px;
         font-size: 14px;
-        background-color: #001598;
         color: #FFFFFF;
         border-radius: 4px;
         max-width: 146px;
+    }
+
+    .background-blue {
+        background-color: #001598;
+    }
+
+    .background-red {
+        background-color: rgb(192, 8, 8);
     }
 
     .annonce-header-img {

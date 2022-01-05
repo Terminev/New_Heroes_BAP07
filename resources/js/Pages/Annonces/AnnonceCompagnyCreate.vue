@@ -101,7 +101,7 @@
             JetValidationErrors,
         },
 
-        props:['user'],
+        props: ['user'],
 
         data() {
             return {
@@ -121,11 +121,11 @@
         },
 
         methods: {
-            
+
             submit() {
 
                 this.form = []
-                
+
                 var compagnies_id = this.user.id
                 var announcement_title = document.getElementById('announcement_title').value
                 var domaine = document.getElementById('domaine').value
@@ -135,7 +135,7 @@
                 var type_of_contract = document.getElementById('type_of_contract').value
                 var time_work = document.getElementById('time_work').value
                 var number_of_jobs = document.getElementById('number_of_jobs').value
-                
+
                 console.log(this.form)
 
                 this.form.push({
@@ -149,7 +149,7 @@
                     'time_work': time_work,
                     'number_of_jobs': number_of_jobs,
                 })
-                
+
                 console.log(this.form)
 
                 this.$inertia.post(this.route('annonce_compagnie.store'), this.form)

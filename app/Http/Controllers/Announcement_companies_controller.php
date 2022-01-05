@@ -90,6 +90,9 @@ class Announcement_companies_controller extends Controller
      */
     public function destroy($id)
     {
-        //
+        $annonce = Announcement_companies::find($id);
+        $annonce->delete();
+        
+        return redirect()->route("annonce_compagnie.index");
     }
 }
