@@ -8,6 +8,7 @@ use App\Http\Controllers\FavoriteController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\CompteController;
 use Inertia\Inertia;
 
 /*
@@ -48,3 +49,6 @@ Route::get('/annonce/{id}', [Announcement_companies_controller::class,'show'])->
 Route::post('/annonce/{id}', [Announcement_companies_controller::class,'destroy'])->name('annonce_compagnie.destroy');
 
 Route::get('/profil', [ProfilController::class,"index"])->name('Profil');
+
+
+

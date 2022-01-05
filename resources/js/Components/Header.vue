@@ -15,9 +15,10 @@
                 <li><a href="/faq">FAQ</a></li>
                 <li><a href="/mentions_legal">Mentions Légal</a></li>
                 <li><a href=""></a>Modifications Sportif</li>
-                <li><a href=""></a>Filtres</li>
                 <li><a href="">Entreprise Favorites</a></li>
+
                 <li v-if="$page.props.user"><a href="/login" @click="logout()">Deconnexion</a></li>
+
             </ul>
         </nav>
 </header>
@@ -46,7 +47,7 @@ nav {
     clip-path: inset(0 0 0 100%);
     transition: 0.3s ease;
     overflow-y: hidden;
-    z-index: 500;
+    z-index: 20;
 }
 
 
@@ -74,6 +75,7 @@ header{
     padding-left: 15px;
     padding-right: 15px;
     background-color: white;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.13);
 }
 
 
@@ -83,7 +85,7 @@ header{
   width:70px;
   cursor:pointer;
   transform: scale(0.4);
-  z-index: 600;
+  z-index: 21;
 }
 
 #burger span{
@@ -154,7 +156,9 @@ span:nth-of-type(3){
 
             },
             logout(){
+
                 this.$inertia.post(route('logout'))
+
             }
         }
     }

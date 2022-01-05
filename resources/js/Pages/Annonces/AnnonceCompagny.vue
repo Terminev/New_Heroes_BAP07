@@ -25,13 +25,19 @@
                     <p>-</p>
                 </div>
                 <div class="contains-input">
-                    <input type="text" placeholder="Domaine d'activité">
+                    <input type="text" v-model="form.domaine" placeholder="Domaine d'activité" v-on:keyup.enter="addDomain()" id="addDomainValue">
                     <div class="bloc-plus">
                         <img src="/storage/img/add.png" alt="+">
                     </div>
                 </div>
+                <div class="containeurDomains">
+                    <div class="domain" v-for="show in afficher" :key="show" :id="show">
+                            {{show}}
+                            <img class="closeAdd" @click="destroy(show)" src="/storage/img/closewhite.png" alt="close">
+                    </div>
+                </div>
                 <div class="contain-button">
-                    <button>
+                    <button @click="destroyAllContain()">
                         Réinitialiser
                     </button>
                 </div>
@@ -76,31 +82,6 @@
                 </div>
             </div>
 
-            <div class="group-contain">
-                <div class="contain-title-logos">
-                    <div class="title-logo">
-                        <img class="logos-annonces" src="/storage/img/mention-legal.png" alt="mention-legal">
-                        <h2>
-                            Localisations
-                        </h2>
-                    </div>
-                    <p>-</p>
-                </div>
-                <div class="contains-input">
-                    <input type="text" placeholder="Ville">
-                    <div class="bloc-plus">
-                        <img src="/storage/img/add.png" alt="+">
-                    </div>
-                </div>
-                <div class="contains-range">
-                    <input class="range" type="range">
-                </div>
-                <div class="contain-button">
-                    <button>
-                        Réinitialiser
-                    </button>
-                </div>
-            </div>
 
             <div class="group-contain">
                 <div class="contain-title-logos">
@@ -151,7 +132,7 @@
         <h2 id="Error">Aucun résultat trouvé</h2>
 
         <div class="annonces-container" v-for="annonce in tab_search" :key="annonce.id">
-            <img src="/storage/img/favorite_heart.png" alt="favorite img"
+            <img class="blackheart" src="/storage/img/blackheart.png" alt="favorite img"
                 @click="favorite(annonce.id, $page.props.user.id )" v-if="$page.props.user">
             <a :href="'/annonce/'+annonce.id">
                 <img src="" alt="img profil compagnie">
@@ -174,20 +155,25 @@
 </template>
 
 <script>
+
     import Header from '@/Components/Header.vue'
-    // import BurgerFiltreAnnonces from '@/Components/BurgerFiltreAnnonces'
 
     export default {
         components: {
+            // name : '#app',
             Header,
-            // BurgerFiltreAnnonces
         },
         data() {
             return {
                 tab_search: this.annonces,
                 tab_reset: [],
                 form: [],
+                afficher : [],
+                form:this.$inertia.form({
+                    domaine: ""
+                })
             }
+
         },
         props: ['annonces', 'favories'],
         methods: {
@@ -226,6 +212,7 @@
             },
 
             showFavorite(id) {
+
                 this.tab_search = []
                 for (var j = 0; j < this.favories.length; j++) {
                     console.log('id :')
@@ -252,6 +239,25 @@
                 var filtre = document.getElementById('filtre')
 
                 filtre.classList.remove('open-filter')
+            },
+            addDomain(){
+
+                this.afficher.push(this.form.domaine);
+                console.log(this.afficher);
+                this.form.domaine = ""
+            },
+            destroyAllContain(){
+                this.afficher = []
+            },
+            destroy(id_domain){
+                console.log(id_domain)
+                for(var i = 0; i < this.afficher.length; i++) {
+                    console.log(this.afficher[i]);
+                    if(this.afficher[i] == id_domain){
+                        console.log("dans le if");
+                        this.afficher[i].splice(this.afficher[i].indexOf(id_domain), 1)
+                    }
+                }
             }
         }
     }
@@ -259,6 +265,42 @@
 </script>
 
 <style scoped>
+
+    .blackheart{
+        width: 15px;
+
+    }
+
+    .closeAdd{
+        width: 8px;
+        height: 8px;
+        margin-left: 10px;
+    }
+
+    .domain{
+        min-width: fit-content;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 5px 10px;
+        border-radius: 15px;
+        color: white;
+        background-color: #001598;
+    }
+
+    .containeurDomains{
+    width: 90%;
+    gap: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 10px auto;
+}
+
+
 
     h1 {
         padding-top: 25px;
@@ -502,13 +544,13 @@
         width: 100%;
         position: fixed;
         right: 0;
-        top: 63px;
+        top: 0;
         flex-direction: column;
         background-color: #f5f5f5;
         clip-path: inset(0 0 0 100%);
         transition: 0.3s ease;
-        z-index: 0;
-        /* overflow-y: hidden; */
+        z-index: 24;
+        overflow-y: scroll;
     }
 
 </style>
