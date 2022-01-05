@@ -15,8 +15,10 @@ class Announcement_companies extends Model
      * @var string[]
      */
     protected $fillable = [
+        'compagnies_id',
         'announcement_title',
         'domaine',
+        'localisation',
         'announcement_description',
         'pay',
         'type_of_contract',

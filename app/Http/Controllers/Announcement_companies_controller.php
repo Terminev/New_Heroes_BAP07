@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Announcement_companies;
+use Inertia\Inertia;
 use App\Models\Favorite;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
+use Illuminate\Support\Facades\Log;
+use App\Models\Announcement_companies;
 
 class Announcement_companies_controller extends Controller
 {
@@ -40,7 +41,9 @@ class Announcement_companies_controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Announcement_companies::create($request[0]);
+
+        return redirect()->route("annonce_compagnie.index");
     }
 
     /**
@@ -88,6 +91,10 @@ class Announcement_companies_controller extends Controller
      */
     public function destroy($id)
     {
-        //
+        Log::info($id);
+        // $annonce = Announcement_companies::find($id);
+        // $annonce->delete();
+
+        // return redirect()->route("annonce_compagnie.index");
     }
 }

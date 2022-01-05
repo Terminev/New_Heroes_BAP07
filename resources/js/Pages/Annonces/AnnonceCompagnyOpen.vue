@@ -9,8 +9,11 @@
             <div class="annonce-header-text">
                 <h1>Nom de l'entreprise</h1>
                 <h2>{{annonces.localisation}}</h2>
-                <jet-button class="button-post">
+                <jet-button class="button-post background-blue">
                     POSTULER
+                </jet-button>
+                <jet-button v-if="user.id == annonces.compagnies_id" class="button-post background-red" @click="Delete">
+                    Supprimer L'annonce
                 </jet-button>
             </div>
             <div class="annonce-header-img">
@@ -25,7 +28,7 @@
         <div class="annonce-content">
             <div>
                 <h3>Type de contrat :</h3>
-                <p>{{annonces.type_of_contract}} - {{annonces.time_work}}</p>
+                <p>{{annonces.type_of_contract}} - {{annonces.time_work}}h / semaine</p>
             </div>
             <div>
                 <h3>Service :</h3>
@@ -33,7 +36,7 @@
             </div>
             <div>
                 <h3>Temps de travail :</h3>
-                <p>{{annonces.time_work}}</p>
+                <p>{{annonces.time_work}}h / semaine</p>
             </div>
             <div>
                 <h3>Nombre de post ouvert :</h3>
@@ -52,17 +55,23 @@
 
 <script>
 
-    // import Header from @/Components/Header.vue
-export default {
-    props:['annonces'],
-    // components : {
-    //     Header
-    // }
-}
+    export default {
+        props: ['annonces', 'user'],
+
+        methods: {
+            Delete(){
+                var id = this.annonces.id
+                console.log(id)
+                this.$inertia.post(this.route('annonce_compagnie.destroy'), id)
+            }
+        }
+    }
+
+
 </script>
 
 <style scoped>
-    header{
+    header {
         display: flex;
         position: fixed;
         height: 63px;
@@ -74,38 +83,38 @@ export default {
         box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.13);
     }
 
-    .annonce-header{
+    .annonce-header {
         padding: 83px 23px 26px 23px;
         display: flex;
         justify-content: space-between;
         border-bottom: 5px solid #BDBBBB;
     }
 
-    .annonce-header-text{
+    .annonce-header-text {
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
 
-    h1{
+    h1 {
         font-size: 24px;
         font-weight: bold;
         text-align: left;
     }
 
-    h3{
+    h3 {
         font-weight: bold;
         font-size: 12px;
         text-transform: uppercase;
     }
 
-    p{
+    p {
         font-size: 11px;
     }
 
     /* Contenu du haut de la page d'une annonce */
 
-    .button-post{
+    .button-post {
         padding: 6px 43px;
         margin-top: 8px;
         font-size: 14px;
@@ -115,7 +124,15 @@ export default {
         max-width: 146px;
     }
 
-    .annonce-header-img{
+    .background-blue {
+        background-color: #001598;
+    }
+
+    .background-red {
+        background-color: rgb(192, 8, 8);
+    }
+
+    .annonce-header-img {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -123,25 +140,25 @@ export default {
         gap: 12px;
     }
 
-    .annonce-header-img .logo-compagny{
+    .annonce-header-img .logo-compagny {
         max-width: 60px;
         width: 100%;
         height: auto;
         object-fit: contain;
     }
 
-    .button-back{
+    .button-back {
         color: #C9C9C9;
     }
 
-    .button-back img{
+    .button-back img {
         object-fit: contain;
         padding-right: 4px;
     }
 
     /* Contenu de la page annonce avec tous les éléments  */
 
-    .annonce-content{
+    .annonce-content {
         padding: 4px 25px;
         display: flex;
         flex-direction: column;
