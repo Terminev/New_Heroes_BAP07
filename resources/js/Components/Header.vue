@@ -17,7 +17,7 @@
                 <li><a href=""></a>Modifications Sportif</li>
                 <li><a href=""></a>Filtres</li>
                 <li><a href="">Entreprise Favorites</a></li>
-                <li v-if="$page.props.user"><a href="" @click="logout()">Deconnexion</a></li>
+                <li v-if="$page.props.user"><a href="/login" @click="logout()">Deconnexion</a></li>
             </ul>
         </nav>
 </header>
@@ -153,7 +153,7 @@ span:nth-of-type(3){
 
             },
             logout(){
-                this.$inertia.post(route('logout'));
+                this.$inertia.post(route('logout'))
             }
         }
     }
