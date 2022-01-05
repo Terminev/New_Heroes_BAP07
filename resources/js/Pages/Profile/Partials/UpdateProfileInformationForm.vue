@@ -42,14 +42,14 @@
             </div>
 
             <!-- Name -->
-            <div class="col-span-6 sm:col-span-4">
+            <div v-if="user.entreprise==0" class="col-span-6 sm:col-span-4">
                 <jet-label for="name" value="Nom :" />
                 <jet-input id="name" type="text" class="mt-1 block w-full" v-model="form.name" autocomplete="name" />
                 <jet-input-error :message="form.errors.name" class="mt-2" />
             </div>
 
             <!-- Last Name -->
-            <div class="col-span-6 sm:col-span-4">
+            <div v-if="user.entreprise==0" class="col-span-6 sm:col-span-4">
                 <jet-label for="last_name" value="Prénom :" />
                 <jet-input id="last_name" type="text" class="mt-1 block w-full" v-model="form.last_name" autocomplete="last_name" />
                 <jet-input-error :message="form.errors.last_name" class="mt-2" />
@@ -70,42 +70,42 @@
             </div>
             
             <!-- Age -->
-            <div class="col-span-6 sm:col-span-4">
+            <div v-if="user.entreprise==0" class="col-span-6 sm:col-span-4">
                 <jet-label for="age" value="Age :" />
                 <jet-input id="age" type="text" class="mt-1 block w-full" v-model="form.age" autocomplete="age" />
                 <jet-input-error :message="form.errors.age" class="mt-2" />
             </div>
 
             <!-- Name of the company -->
-            <div class="col-span-6 sm:col-span-4">
+            <div v-if="user.entreprise==1" class="col-span-6 sm:col-span-4">
                 <jet-label for="company_name" value="Nom de l'entreprise :" />
                 <jet-input id="company_name" type="text" class="mt-1 block w-full" v-model="form.company_name" autocomplete="company_name" />
                 <jet-input-error :message="form.errors.company_name" class="mt-2" />
             </div>
 
             <!-- Siret -->
-            <div class="col-span-6 sm:col-span-4">
+            <div v-if="user.entreprise==1" class="col-span-6 sm:col-span-4">
                 <jet-label for="siret" value="Le numéro de Siret :" />
                 <jet-input id="siret" type="text" class="mt-1 block w-full" v-model="form.siret" autocomplete="siret" />
                 <jet-input-error :message="form.errors.siret" class="mt-2" />
             </div>
 
             <!-- Number of employe -->
-            <div class="col-span-6 sm:col-span-4">
+            <div v-if="user.entreprise==1" class="col-span-6 sm:col-span-4">
                 <jet-label for="number_employe" value="Le nombre d'employés :" />
                 <jet-input id="number_employe" type="text" class="mt-1 block w-full" v-model="form.number_employe" autocomplete="number_employe" />
                 <jet-input-error :message="form.errors.number_employe" class="mt-2" />
             </div>
 
             <!-- Name representing -->
-            <div class="col-span-6 sm:col-span-4">
+            <div v-if="user.entreprise==1" class="col-span-6 sm:col-span-4">
                 <jet-label for="name_representing" value="Le nom représenté :" />
                 <jet-input id="name_representing" type="text" class="mt-1 block w-full" v-model="form.name_representing" autocomplete="name_representing" />
                 <jet-input-error :message="form.errors.name_representing" class="mt-2" />
             </div>
 
-            <!-- Number of employe -->
-            <div class="col-span-6 sm:col-span-4">
+            <!-- Industrie -->
+            <div v-if="user.entreprise==1" class="col-span-6 sm:col-span-4">
                 <jet-label for="industry" value="Industie :" />
                 <jet-input id="industry" type="text" class="mt-1 block w-full" v-model="form.industry" autocomplete="industry" />
                 <jet-input-error :message="form.errors.industry" class="mt-2" />

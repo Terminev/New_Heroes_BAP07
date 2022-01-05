@@ -51,13 +51,14 @@
 </template>
 
 <script>
-export default {
-    props:['annonces']
-}
+    export default {
+        props: ['annonces']
+    }
+
 </script>
 
 <style scoped>
-    header{
+    header {
         display: flex;
         position: fixed;
         height: 63px;
@@ -69,48 +70,48 @@ export default {
         box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.13);
     }
 
-    .annonce-header{
+    .annonce-header {
         padding: 83px 23px 26px 23px;
         display: flex;
         justify-content: space-between;
         border-bottom: 5px solid #BDBBBB;
     }
 
-    .annonce-header-text{
+    .annonce-header-text {
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
 
-    h1{
+    h1 {
         font-size: 24px;
         font-weight: bold;
         text-align: left;
     }
 
-    h3{
+    h3 {
         font-weight: bold;
         font-size: 12px;
         text-transform: uppercase;
     }
 
-    p{
+    p {
         font-size: 11px;
     }
 
     /* Contenu du haut de la page d'une annonce */
 
-    .button-post{
+    .button-post {
         padding: 6px 43px;
         margin-top: 8px;
-        font-size: 14px;        
+        font-size: 14px;
         background-color: #001598;
         color: #FFFFFF;
         border-radius: 4px;
         max-width: 146px;
     }
 
-    .annonce-header-img{
+    .annonce-header-img {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -118,25 +119,25 @@ export default {
         gap: 12px;
     }
 
-    .annonce-header-img .logo-compagny{
+    .annonce-header-img .logo-compagny {
         max-width: 60px;
         width: 100%;
         height: auto;
         object-fit: contain;
     }
 
-    .button-back{
+    .button-back {
         color: #C9C9C9;
     }
 
-    .button-back img{
+    .button-back img {
         object-fit: contain;
         padding-right: 4px;
     }
 
     /* Contenu de la page annonce avec tous les éléments  */
 
-    .annonce-content{
+    .annonce-content {
         padding: 4px 25px;
         display: flex;
         flex-direction: column;
