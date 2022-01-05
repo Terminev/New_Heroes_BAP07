@@ -40,7 +40,7 @@ class Announcement_companies_controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Announcement_companies::create($request);
     }
 
     /**
