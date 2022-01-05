@@ -15,6 +15,11 @@
                 <li><a href=""></a>Modifications Sportif</li>
                 <li><a href=""></a>Filtres</li>
                 <li><a href="">Entreprise Favorites</a></li>
+                <li><form @submit.prevent="logout()">
+                                            <jet-dropdown-link as="button">
+                                                Log Out
+                                            </jet-dropdown-link>
+                                        </form></li>
             </ul>
         </nav>
 </header>
@@ -70,6 +75,7 @@ header{
     padding-left: 15px;
     padding-right: 15px;
     background-color: white;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.13);
 }
 
 
@@ -148,6 +154,9 @@ span:nth-of-type(3){
 
             nav.classList.toggle('open')
 
+            },
+            logout(){
+               this.$inertia.post(route('logout'));
             }
         }
     }

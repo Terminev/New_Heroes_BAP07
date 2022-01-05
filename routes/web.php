@@ -8,6 +8,7 @@ use App\Http\Controllers\FavoriteController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\CompteController;
 use Inertia\Inertia;
 
 /*
@@ -44,3 +45,6 @@ Route::post('/annonce', [FavoriteController::class,'store'])->name('favorite.sto
 Route::get('/annonce/{id}', [Announcement_companies_controller::class,'show'])->name('annonce_compagnie.show');
 
 Route::get('/profil', [ProfilController::class,"index"])->name('Profil');
+
+
+
