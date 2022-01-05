@@ -6,7 +6,7 @@
 
 <div class="blue-bloc">
 <h1>
-    Nom et Prénom
+    {{user.last_name}} {{user.name}}
 </h1>
 </div>
 
@@ -151,6 +151,7 @@ button{
     padding-left: 5px;
     padding-right: 5px;
     color: white;
+    margin-bottom: 20px;
 }
 
 .activity-domaine{
@@ -221,6 +222,7 @@ h1{
 <script>
 import Header from '@/Components/Header.vue'
     export default{
+        props:['user'],
         components: {
         Header
         },

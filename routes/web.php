@@ -31,9 +31,9 @@ Route::get('/', function () {
     ]);
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/profil', function () {
-    return Inertia::render('Profil');
-})->name('Profil');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->name('dashboard');
 
 Route::get('/mentions_legal', [MentionsLegalController::class,"index"])->name('MentionLegale');
 
@@ -41,6 +41,8 @@ Route::get('/faq', [FaqController::class,"index"])->name('FAQ');
 Route::get('/annonce', [Announcement_companies_controller::class,'index'])->name('annonce_compagnie.index');
 Route::post('/annonce', [Announcement_companies_controller::class,'store'])->name('annonce_compagnie.store');
 Route::post('/annonce', [FavoriteController::class,'store'])->name('favorite.store');
+
+Route::post('/annonce/create', [Announcement_companies_controller::class,'create'])->name('annonce_compagnie.create');
 
 Route::get('/annonce/{id}', [Announcement_companies_controller::class,'show'])->name('annonce_compagnie.show');
 

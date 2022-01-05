@@ -51,8 +51,13 @@
 </template>
 
 <script>
+
+    // import Header from @/Components/Header.vue
 export default {
-    props:['annonces']
+    props:['annonces'],
+    // components : {
+    //     Header
+    // }
 }
 </script>
 
@@ -103,7 +108,7 @@ export default {
     .button-post{
         padding: 6px 43px;
         margin-top: 8px;
-        font-size: 14px;        
+        font-size: 14px;
         background-color: #001598;
         color: #FFFFFF;
         border-radius: 4px;
