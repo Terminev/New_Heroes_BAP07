@@ -1,9 +1,8 @@
 <template>
     <div>
-        <header>
-            <img src="/storage/img/logo.png" alt="logo">
-            <img src="/storage/img/list.png" alt="burger">
-        </header>
+        <Header>
+
+        </Header>
 
         <div class="annonce-header">
             <div class="annonce-header-text">
@@ -54,19 +53,23 @@
 </template>
 
 <script>
+    import Header from '@/Components/Header.vue'
 
     export default {
+        components: {
+            Header,
+        },
+
         props: ['annonces', 'user'],
 
         methods: {
-            Delete(){
+            Delete() {
                 var id = this.annonces.id
                 console.log(id)
                 this.$inertia.post(this.route('annonce_compagnie.destroy'), id)
             }
         }
     }
-
 
 </script>
 
