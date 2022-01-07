@@ -4,7 +4,6 @@
 
         </Header>
 
-
         <!-- Le systeme de filtre des annonces  -->
 
         <section id="filtre">
@@ -83,7 +82,6 @@
                 </div>
             </div>
 
-
             <div class="group-contain">
                 <div class="contain-title-logos">
                     <div class="title-logo">
@@ -112,14 +110,13 @@
         </section>
 
 
-
         <!-- Le contenu de la page annonce -->
 
 
         <h1>Recherche d’un sportif</h1>
         <div class="search-annonce">
-            <img src="/storage/img/favorite_heart.png"  alt="favorite img" @click="showFavorite($page.props.user.id)"
-                v-if="$page.props.user">
+            <img src="/storage/img/favorite_heart.png" class="mr-8" alt="favorite img"
+                @click="showFavorite($page.props.user.id)" v-if="$page.props.user">
             <input id="research" type="text" placeholder="Recherche..." @change="search()">
             <div class="img-container">
                 <img id="search" @click="filter()" src="/storage/img/logo_search.png" alt="settings button">
@@ -133,10 +130,10 @@
         <h2 id="Error">Aucun résultat trouvé</h2>
 
         <div class="annonces-container" v-for="annonce in tab_search" :key="annonce.id">
-            <!-- <img v-if="$page.props.user" class="blackheart" src="/storage/img/favorite_heart.png" alt="favorite img"
-                @click="favorite(annonce.id, $page.props.user.id )"> -->
-            <img v-if="$page.props.user" class="blackheart" src="/storage/img/blackheart.png" alt="favorite img"
+            <img v-if="tab_in_favorite.includes(annonce.id)" class="blackheart mr-8 mt-2 mb-2" src="/storage/img/favorite_heart.png" alt="favorite img"
                 @click="favorite(annonce.id, $page.props.user.id )">
+            <img v-else class="blackheart mr-8 mt-2 mb-2" src="/storage/img/blackheart.png"
+                alt="favorite img" @click="favorite(annonce.id, $page.props.user.id )">
             <a :href="'/annonce/'+annonce.id">
                 <img src="" alt="img profil compagnie">
                 <div>
@@ -151,10 +148,6 @@
         </div>
     </div>
 
-
-
-
-
 </template>
 
 <script>
@@ -165,19 +158,23 @@
             // name : '#app',
             Header,
         },
+
         data() {
             return {
                 tab_search: this.annonces,
                 tab_reset: [],
+                tab_in_favorite: [],
                 form: [],
                 afficher: [],
                 form: this.$inertia.form({
                     domaine: ""
-                })
+                }),
             }
-
         },
-        props: ['annonces', 'favories'],
+
+        props: ['annonces', 'favories', 'user'],
+
+
         methods: {
             search() {
                 if (this.tab_search = []) {
@@ -201,20 +198,18 @@
             },
 
             favorite(id, user_id) {
-                // this.form.announcement_companies_table_id = id
-                // this.form.users_id = user_id
                 this.form = []
                 this.form.push({
                     'users_id': user_id,
                     'announcement_companies_table_id': id,
                 })
                 console.log(this.form[0])
-
                 this.$inertia.post(this.route('favorite.store'), this.form)
+                this.ChangeColor()
             },
 
             showFavorite(id) {
-
+                
                 this.tab_search = []
                 for (var j = 0; j < this.favories.length; j++) {
                     console.log('id :')
@@ -230,7 +225,6 @@
                 console.log(this.annonces)
             },
 
-
             filter() {
                 var filtre = document.getElementById('filtre')
 
@@ -243,7 +237,7 @@
                 filtre.classList.remove('open-filter')
             },
             addDomain() {
-
+                
                 this.afficher.push(this.form.domaine);
                 console.log(this.afficher);
                 this.form.domaine = ""
@@ -261,20 +255,25 @@
                     }
                 }
             },
-            ChangeColor(){
 
+            ChangeColor() {
+                this.tab_in_favorite = []
+                for (var l = 0; l < this.favories.length; l++){
+                    if (this.user.id == this.favories[l].users_id){
+                        this.tab_in_favorite.push(this.favories[l].announcement_companies_table_id)
+                    }
+                }
             }
-        }
+        },
+        mounted(){
+            this.ChangeColor()
+        },
     }
+
 
 </script>
 
 <style scoped>
-    .blackheart {
-        width: 15px;
-
-    }
-
     .closeAdd {
         width: 8px;
         height: 8px;
@@ -303,8 +302,6 @@
         padding-right: 20px;
         margin: 10px auto;
     }
-
-
 
     h1 {
         padding-top: 25px;
@@ -346,6 +343,10 @@
         width: 100%;
     }
 
+    .blackheart {
+        width: 15px;
+    }
+
     .img-container {
         background-color: #001598;
         height: 34px;
@@ -371,10 +372,22 @@
         font-weight: bold;
     }
 
+    .add-annonce {
+        display: flex;
+        justify-content: center;
+        padding: 6px 0px;
+        margin: 16px auto;
+        font-size: 14px;
+        border-radius: 4px;
+        max-width: 223px;
+        background-color: #001598;
+        color: #FFFFFF;
+    }
+
     .annonces-container {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-end;
         justify-content: center;
         margin: 16px auto;
         max-width: 348px;
@@ -397,11 +410,6 @@
     .annonces-container div {
         padding-left: 8px;
     }
-
-
-
-
-
 
     .contains-range {
         display: flex;
@@ -443,8 +451,6 @@
     .open-filter {
         clip-path: inset(0 0 0 0) !important;
     }
-
-
 
     .close {
         position: absolute;
@@ -540,8 +546,6 @@
         gap: 15px;
         align-items: center;
     }
-
-
 
     #filtre {
         min-height: 100vh;
