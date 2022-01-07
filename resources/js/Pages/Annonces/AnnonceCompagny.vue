@@ -25,15 +25,16 @@
                     <p>-</p>
                 </div>
                 <div class="contains-input">
-                    <input type="text" v-model="form.domaine" placeholder="Domaine d'activité" v-on:keyup.enter="addDomain()" id="addDomainValue">
+                    <input type="text" v-model="form.domaine" placeholder="Domaine d'activité"
+                        v-on:keyup.enter="addDomain()" id="addDomainValue">
                     <div class="bloc-plus">
                         <img src="/storage/img/add.png" alt="+">
                     </div>
                 </div>
                 <div class="containeurDomains">
                     <div class="domain" v-for="show in afficher" :key="show" :id="show">
-                            {{show}}
-                            <img class="closeAdd" @click="destroy(show)" src="/storage/img/closewhite.png" alt="close">
+                        {{show}}
+                        <img class="closeAdd" @click="destroy(show)" src="/storage/img/closewhite.png" alt="close">
                     </div>
                 </div>
                 <div class="contain-button">
@@ -117,23 +118,30 @@
 
         <h1>Recherche d’un sportif</h1>
         <div class="search-annonce">
+<<<<<<< HEAD
             <img src="/storage/img/favorite_heart.png"  alt="favorite img" @click="showFavorite($page.props.user.id)"
                 v-if="$page.props.user">
+=======
+            <img src="/storage/img/favorite_heart.png" alt="favorite img" @click="showFavorite($page.props.user.id)"
+                v-if="$page.props.user" class="pr-4">
+>>>>>>> 255c7cf8565e519037f623ebd95fa440b86a797a
             <input id="research" type="text" placeholder="Recherche..." @change="search()">
             <div class="img-container">
                 <img id="search" @click="filter()" src="/storage/img/logo_search.png" alt="settings button">
             </div>
         </div>
 
-        <div class="add-annonce">
+        <div class="add-annonce text-center pt-2">
             <a :href="'/annonce/create'">Ajouter une annonce</a>
         </div>
 
         <h2 id="Error">Aucun résultat trouvé</h2>
 
         <div class="annonces-container" v-for="annonce in tab_search" :key="annonce.id">
-            <img class="blackheart" src="/storage/img/blackheart.png" alt="favorite img"
-                @click="favorite(annonce.id, $page.props.user.id )" v-if="$page.props.user">
+            <!-- <img v-if="$page.props.user" class="blackheart" src="/storage/img/favorite_heart.png" alt="favorite img"
+                @click="favorite(annonce.id, $page.props.user.id )"> -->
+            <img v-if="$page.props.user" class="blackheart" src="/storage/img/blackheart.png" alt="favorite img"
+                @click="favorite(annonce.id, $page.props.user.id )">
             <a :href="'/annonce/'+annonce.id">
                 <img src="" alt="img profil compagnie">
                 <div>
@@ -155,7 +163,6 @@
 </template>
 
 <script>
-
     import Header from '@/Components/Header.vue'
 
     export default {
@@ -168,8 +175,8 @@
                 tab_search: this.annonces,
                 tab_reset: [],
                 form: [],
-                afficher : [],
-                form:this.$inertia.form({
+                afficher: [],
+                form: this.$inertia.form({
                     domaine: ""
                 })
             }
@@ -240,20 +247,20 @@
 
                 filtre.classList.remove('open-filter')
             },
-            addDomain(){
+            addDomain() {
 
                 this.afficher.push(this.form.domaine);
                 console.log(this.afficher);
                 this.form.domaine = ""
             },
-            destroyAllContain(){
+            destroyAllContain() {
                 this.afficher = []
             },
-            destroy(id_domain){
+            destroy(id_domain) {
                 console.log(id_domain)
-                for(var i = 0; i < this.afficher.length; i++) {
+                for (var i = 0; i < this.afficher.length; i++) {
                     console.log(this.afficher[i]);
-                    if(this.afficher[i] == id_domain){
+                    if (this.afficher[i] == id_domain) {
                         console.log("dans le if");
                         this.afficher[i].splice(this.afficher[i].indexOf(id_domain), 1)
                     }
@@ -268,19 +275,18 @@
 </script>
 
 <style scoped>
-
-    .blackheart{
+    .blackheart {
         width: 15px;
 
     }
 
-    .closeAdd{
+    .closeAdd {
         width: 8px;
         height: 8px;
         margin-left: 10px;
     }
 
-    .domain{
+    .domain {
         min-width: fit-content;
         display: flex;
         justify-content: space-around;
@@ -291,17 +297,17 @@
         background-color: #001598;
     }
 
-    .containeurDomains{
-    width: 90%;
-    gap: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin: 10px auto;
-}
+    .containeurDomains {
+        width: 90%;
+        gap: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin: 10px auto;
+    }
 
 
 

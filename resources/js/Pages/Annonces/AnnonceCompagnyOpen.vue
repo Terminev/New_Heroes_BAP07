@@ -1,8 +1,10 @@
 <template>
     <div>
-       <Header>
 
-       </Header>
+        <Header>
+
+        </Header>
+
 
         <div class="annonce-header">
             <div class="annonce-header-text">
@@ -64,14 +66,13 @@
         props: ['annonces', 'user'],
 
         methods: {
-            Delete(){
+            Delete() {
                 var id = this.annonces.id
                 console.log(id)
                 this.$inertia.post(this.route('annonce_compagnie.destroy'), id)
             }
         }
     }
-
 
 </script>
 
