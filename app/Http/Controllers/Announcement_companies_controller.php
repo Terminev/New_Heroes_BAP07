@@ -68,9 +68,9 @@ class Announcement_companies_controller extends Controller
      */
     public function edit($id)
     {
-        $annonces_edit = Announcement_companies::findOrFail($id);
+        $annonce_edit = Announcement_companies::findOrFail($id);
         return Inertia::render('Annonces/AnnonceEdit', [
-            'annonces'=>$annonces_edit
+            'annonce'=>$annonce_edit
         ]);
     }
 
@@ -83,7 +83,12 @@ class Announcement_companies_controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // $annonce_edit = Announcement_companies::findOrFail($id);
+        // $this->validate($request, [
+        //     'localisation'=>'required',
+        //     ''
+        // ]);
+        // $annonce_edit->update($request->only(''))
     }
 
     /**

@@ -51,7 +51,7 @@
                 <p>{{annonces.announcement_description}}</p>
             </div>
             <div class="align-button">
-            <a v-if="user.id == annonces.compagnies_id" href="/annonce/{id}/edit" class="edit">Edit</a>
+            <a  :href="'/annonce/'+annonces.id+'/edit'" class="edit">Edit</a>
             </div>
         </div>
     </div>

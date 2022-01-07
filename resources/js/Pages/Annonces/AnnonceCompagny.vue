@@ -118,13 +118,8 @@
 
         <h1>Recherche d’un sportif</h1>
         <div class="search-annonce">
-<<<<<<< HEAD
             <img src="/storage/img/favorite_heart.png"  alt="favorite img" @click="showFavorite($page.props.user.id)"
                 v-if="$page.props.user">
-=======
-            <img src="/storage/img/favorite_heart.png" alt="favorite img" @click="showFavorite($page.props.user.id)"
-                v-if="$page.props.user" class="pr-4">
->>>>>>> 255c7cf8565e519037f623ebd95fa440b86a797a
             <input id="research" type="text" placeholder="Recherche..." @change="search()">
             <div class="img-container">
                 <img id="search" @click="filter()" src="/storage/img/logo_search.png" alt="settings button">
