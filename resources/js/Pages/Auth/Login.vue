@@ -1,10 +1,10 @@
 <template>
+
     <Head title="Log in" />
 
-    <header>
-        <img src="storage/img/logo.png" alt="logo">
-        <img src="storage/img/list.png" alt="burger">
-    </header>
+    <Header>
+
+    </Header>
 
     <jet-authentication-card class="flex justify-center">
         <h1>S'IDENTIFIER</h1>
@@ -25,14 +25,16 @@
                 <div class="img-container">
                     <img src="/storage/img/person-circle.png" alt="login">
                 </div>
-                <jet-input id="email" type="email" class="input block w-full" placeholder="email" v-model="form.email" required autofocus />
+                <jet-input id="email" type="email" class="input block w-full" placeholder="email" v-model="form.email"
+                    required autofocus />
             </div>
 
             <div class="input-container">
                 <div class="img-container">
                     <img src="/storage/img/lock.png" alt="login">
                 </div>
-                <jet-input id="password" type="password" class="input block w-full" placeholder="mot de passe" v-model="form.password" required autocomplete="current-password" />
+                <jet-input id="password" type="password" class="input block w-full" placeholder="mot de passe"
+                    v-model="form.password" required autocomplete="current-password" />
             </div>
 
             <jet-button class="button-login">
@@ -41,17 +43,18 @@
 
             <div class="block remember-button mt-8">
                 <label class="remember-button-content">
-                    <jet-checkbox name="remember" v-model:checked="form.remember" />
-                    <span class="ml-2">Remember me</span>
+                    <span>Remember me</span>
+                    <jet-checkbox class="ml-2" name="remember" v-model:checked="form.remember" />
                 </label>
             </div>
 
             <div class="flex items-center justify-center flex-col password-forgot">
-                <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    Mot de passe oublié ?
+                <Link v-if="canResetPassword" :href="route('password.request')"
+                    class="underline text-sm text-gray-600 hover:text-gray-900">
+                Mot de passe oublié ?
                 </Link>
                 <Link v-if="canResetPassword" :href="route('register')" class="text-sm mt-8 hover:text-gray-900">
-                    Nouveau du New Heroes ? <span class="font-bold">Inscrivez-vous</span>
+                Nouveau du New Heroes ? <span class="font-bold">Inscrivez-vous</span>
                 </Link>
             </div>
         </form>
@@ -59,7 +62,10 @@
 </template>
 
 <script>
-    import { defineComponent } from 'vue'
+    import Header from '@/Components/Header.vue'
+    import {
+        defineComponent
+    } from 'vue'
     import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
     import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue'
     import JetButton from '@/Jetstream/Button.vue'
@@ -67,10 +73,14 @@
     import JetCheckbox from '@/Jetstream/Checkbox.vue'
     import JetLabel from '@/Jetstream/Label.vue'
     import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
-    import { Head, Link } from '@inertiajs/inertia-vue3';
+    import {
+        Head,
+        Link
+    } from '@inertiajs/inertia-vue3';
 
     export default defineComponent({
         components: {
+            Header,
             Head,
             JetAuthenticationCard,
             JetAuthenticationCardLogo,
@@ -101,7 +111,7 @@
             submit() {
                 this.form
                     .transform(data => ({
-                        ... data,
+                        ...data,
                         remember: this.form.remember ? 'on' : ''
                     }))
                     .post(this.route('login'), {
@@ -110,15 +120,15 @@
             }
         }
     })
+
 </script>
 
 <style scoped>
-
-    jet-authentication-card{
+    jet-authentication-card {
         justify-content: center;
     }
 
-    header{
+    header {
         display: flex;
         position: fixed;
         height: 63px;
@@ -130,13 +140,13 @@
         box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.13);
     }
 
-    h1{
+    h1 {
         font-size: 30px;
         font-weight: bold;
         margin-bottom: 30px;
     }
 
-    .button-login{
+    .button-login {
         font-size: 16px;
         margin: 20px 0;
         padding: 12px;
@@ -144,16 +154,16 @@
         background: #0D6EFD;
     }
 
-    .remember-button-content{
+    .remember-button-content {
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 18px;
-        text-shadow: 0px 4px 4px rgb(16,16,16,0.25);
+        text-shadow: 0px 4px 4px rgb(16, 16, 16, 0.25);
     }
 
 
-    form{
+    form {
         font-size: 24px;
         color: #101010;
         display: flex;
@@ -161,12 +171,12 @@
         gap: 18px;
     }
 
-    .password-forgot{
+    .password-forgot {
         font-size: 14px;
     }
 
 
-    header{
+    header {
         display: flex;
         position: fixed;
         height: 63px;
@@ -177,31 +187,32 @@
         padding: 0 15px;
     }
 
-    .input-container{
+    .input-container {
         display: flex;
         height: 46px;
         border-radius: 4px;
-        background: linear-gradient(#C6E3DE,#81A4D0);
+        background: linear-gradient(#C6E3DE, #81A4D0);
     }
 
-    .input-container .input{
+    .input-container .input {
         margin: 2px 2px 2px 0px;
     }
 
-    .img-container{
+    .img-container {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 31px;
         height: auto;
         margin: 2px;
-        background: linear-gradient(#E9F5F3,#CBD8EC);
+        background: linear-gradient(#E9F5F3, #CBD8EC);
     }
 
-    .remember-button-content{
+    .remember-button-content {
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 18px;
     }
+
 </style>

@@ -97,7 +97,7 @@
             </div>
 
             <div class="submit flex items-center justify-end flex-col-reverse">
-                <Link :href="route('login')" class="login underline text-sm text-black-900 hover:text-black-900">
+                <Link :href="route('login')" class="login text-center underline text-sm text-black-900 hover:text-black-900">
                 Vous avez déja un compte ? Connectez-vous
                 </Link>
 
@@ -222,8 +222,10 @@
 
             </div>
         </form>
-        <input id="entreprise" type="checkbox" @change="ChangeEntreprise()" v-model="form.entreprise">
-        <label for="entreprise">Vous êtes une entreprise ?</label>
+        <div>
+            <label for="entreprise" class="mr-2">Vous êtes une entreprise ?</label>
+            <input id="entreprise" type="checkbox" @change="ChangeEntreprise()" v-model="form.entreprise">
+        </div>
     </jet-authentication-card>
 </template>
 

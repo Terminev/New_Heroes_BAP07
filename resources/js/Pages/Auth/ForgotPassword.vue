@@ -1,18 +1,18 @@
 <template>
-    <Head title="Forgot Password" />
 
-    <header>
-        <img src="storage/img/logo.png" alt="logo">
-        <img src="storage/img/list.png" alt="burger">
-    </header>
+    <Head title="Forgot Password" />
+    <Header>
+
+    </Header>
 
     <jet-authentication-card>
-        
+
         <h1>Mot de passe oublié</h1>
 
         <div class="forgot-psw-text">
             <p>Vous avez oubliez votre mot de passe ?</p>
-            <p>Aucun problème. Il suffit de nous communiquer votre adresse mail et nous vous enverrons un lien de réinitialisation du mot de passe qui vous permettra d'en choisir un nouveau.</p>
+            <p>Aucun problème. Il suffit de nous communiquer votre adresse mail et nous vous enverrons un lien de
+                réinitialisation du mot de passe qui vous permettra d'en choisir un nouveau.</p>
         </div>
 
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
@@ -37,8 +37,13 @@
 </template>
 
 <script>
-    import { defineComponent } from 'vue'
-    import { Head } from '@inertiajs/inertia-vue3';
+    import Header from '@/Components/Header.vue'
+    import {
+        defineComponent
+    } from 'vue'
+    import {
+        Head
+    } from '@inertiajs/inertia-vue3';
     import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
     import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue'
     import JetButton from '@/Jetstream/Button.vue'
@@ -48,6 +53,7 @@
 
     export default defineComponent({
         components: {
+            Header,
             Head,
             JetAuthenticationCard,
             JetAuthenticationCardLogo,
@@ -75,29 +81,17 @@
             }
         }
     })
+
 </script>
 
 <style scoped>
-
-    header{
-        display: flex;
-        position: fixed;
-        height: 63px;
-        background: white;
-        align-items: center;
-        width: 100%;
-        justify-content: space-between;
-        padding: 0 15px;
-        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.13);
-    }
-
-    h1{
+    h1 {
         font-size: 30px;
         font-weight: bold;
         margin-bottom: 30px;
     }
 
-    .forgot-psw-text{
+    .forgot-psw-text {
         text-align: justify;
         max-width: 290px;
         display: flex;
@@ -106,7 +100,7 @@
         padding-bottom: 64px;
     }
 
-    .button{
+    .button {
         background-color: #0D6EFD;
         border-radius: 4px;
         padding: 12px;
