@@ -123,26 +123,28 @@
             </div>
         </div>
 
-        <div class="add-annonce text-center pt-2">
+        <div v-if="$page.props.user.entreprise == 1" class="add-annonce text-center pt-2">
             <a :href="'/annonce/create'">Ajouter une annonce</a>
         </div>
 
         <h2 id="Error">Aucun résultat trouvé</h2>
 
         <div class="annonces-container" v-for="annonce in tab_search" :key="annonce.id">
-            <img v-if="tab_in_favorite.includes(annonce.id)" class="blackheart mr-8 mt-2 mb-2" src="/storage/img/favorite_heart.png" alt="favorite img"
+            <img v-if="tab_in_favories.includes(annonce.id)" class="blackheart mr-8 mt-2 mb-2"
+                src="/storage/img/favorite_heart.png" alt="favorite img"
                 @click="favorite(annonce.id, $page.props.user.id )">
-            <img v-else class="blackheart mr-8 mt-2 mb-2" src="/storage/img/blackheart.png"
-                alt="favorite img" @click="favorite(annonce.id, $page.props.user.id )">
+            <img v-else class="blackheart mr-8 mt-2 mb-2" src="/storage/img/blackheart.png" alt="favorite img"
+                @click="favorite(annonce.id, $page.props.user.id )">
             <a :href="'/annonce/'+annonce.id">
-                <img src="" alt="img profil compagnie">
-                <div>
+                <img src="" class="annonce-img" alt="img profil compagnie">
+                <div class="annonce-text">
                     <div class="flex justify-between pr-2">
                         <h3>{{annonce.announcement_title}}</h3>
                     </div>
-                    <h4>Nom de l'entreprise</h4>
+                    <h4>{{user.company_name}}</h4>
                     <h5>{{annonce.localisation}}</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus, maxime?</p>
+                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, alias.<!-- {{annonce.announcement_description}} -->
+                    </p>
                 </div>
             </a>
         </div>
@@ -163,7 +165,7 @@
             return {
                 tab_search: this.annonces,
                 tab_reset: [],
-                tab_in_favorite: [],
+                tab_in_favories: [],
                 form: [],
                 afficher: [],
                 form: this.$inertia.form({
@@ -176,6 +178,7 @@
 
 
         methods: {
+
             search() {
                 if (this.tab_search = []) {
                     this.tab_search = this.annonces
@@ -205,11 +208,11 @@
                 })
                 console.log(this.form[0])
                 this.$inertia.post(this.route('favorite.store'), this.form)
-                this.ChangeColor()
+                setTimeout(this.ChangeColor(), 1000)
             },
 
             showFavorite(id) {
-                
+
                 this.tab_search = []
                 for (var j = 0; j < this.favories.length; j++) {
                     console.log('id :')
@@ -231,20 +234,23 @@
                 filtre.classList.add('open-filter')
 
             },
+
             filterClose() {
                 var filtre = document.getElementById('filtre')
 
                 filtre.classList.remove('open-filter')
             },
+
             addDomain() {
-                
                 this.afficher.push(this.form.domaine);
                 console.log(this.afficher);
                 this.form.domaine = ""
             },
+
             destroyAllContain() {
                 this.afficher = []
             },
+
             destroy(id_domain) {
                 console.log(id_domain)
                 for (var i = 0; i < this.afficher.length; i++) {
@@ -257,19 +263,18 @@
             },
 
             ChangeColor() {
-                this.tab_in_favorite = []
-                for (var l = 0; l < this.favories.length; l++){
-                    if (this.user.id == this.favories[l].users_id){
-                        this.tab_in_favorite.push(this.favories[l].announcement_companies_table_id)
+                this.tab_in_favories = []
+                for (var l = 0; l < this.favories.length; l++) {
+                    if (this.user.id == this.favories[l].users_id) {
+                        this.tab_in_favories.push(this.favories[l].announcement_companies_table_id)
                     }
                 }
             }
         },
-        mounted(){
+        mounted() {
             this.ChangeColor()
         },
     }
-
 
 </script>
 
@@ -384,6 +389,12 @@
         color: #FFFFFF;
     }
 
+
+
+    /* Cards Annonces Compagny */
+
+
+
     .annonces-container {
         display: flex;
         flex-direction: column;
@@ -400,6 +411,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 100%;
     }
 
     .annonces-container img {
@@ -410,6 +422,18 @@
     .annonces-container div {
         padding-left: 8px;
     }
+
+    .annonce-img {
+        max-width: 121px;
+        width: 100%;
+    }
+
+    .annonce-text {
+        max-width: 100%;
+        width: 100%;
+    }
+
+
 
     .contains-range {
         display: flex;
