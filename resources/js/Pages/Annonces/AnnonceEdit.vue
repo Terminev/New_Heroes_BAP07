@@ -64,11 +64,7 @@
         props: ['annonces', 'user'],
 
         methods: {
-            Delete(){
-                var id = this.annonces.id
-                console.log(id)
-                this.$inertia.post(this.route('annonce_compagnie.destroy'), id)
-            }
+            
         }
     }
 

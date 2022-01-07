@@ -117,7 +117,7 @@
 
         <h1>Recherche d’un sportif</h1>
         <div class="search-annonce">
-            <img src="/storage/img/favorite_heart.png" alt="favorite img" @click="showFavorite($page.props.user.id)"
+            <img src="/storage/img/favorite_heart.png"  alt="favorite img" @click="showFavorite($page.props.user.id)"
                 v-if="$page.props.user">
             <input id="research" type="text" placeholder="Recherche..." @change="search()">
             <div class="img-container">
@@ -258,6 +258,9 @@
                         this.afficher[i].splice(this.afficher[i].indexOf(id_domain), 1)
                     }
                 }
+            },
+            ChangeColor(){
+
             }
         }
     }

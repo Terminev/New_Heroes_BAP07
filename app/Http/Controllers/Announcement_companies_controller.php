@@ -68,7 +68,10 @@ class Announcement_companies_controller extends Controller
      */
     public function edit($id)
     {
-        //
+        $annonces_edit = Announcement_companies::findOrFail($id);
+        return Inertia::render('Annonces/AnnonceEdit', [
+            'annonces'=>$annonces_edit
+        ]);
     }
 
     /**

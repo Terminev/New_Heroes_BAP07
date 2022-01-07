@@ -9,6 +9,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\CompteController;
+use App\Models\Announcement_companies;
 use Inertia\Inertia;
 
 /*
@@ -47,6 +48,8 @@ Route::post('/annonce/create', [Announcement_companies_controller::class,'store'
 
 Route::get('/annonce/{id}', [Announcement_companies_controller::class,'show'])->name('annonce_compagnie.show');
 Route::post('/annonce/{id}', [Announcement_companies_controller::class,'destroy'])->name('annonce_compagnie.destroy');
+
+Route::get('/annonce/{id}/edit',[Announcement_companies_controller::class, 'edit'])->name('annonce_compagnie.edit');
 
 Route::get('/profil', [ProfilController::class,"index"])->name('Profil');
 
