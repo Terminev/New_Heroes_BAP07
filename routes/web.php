@@ -50,6 +50,7 @@ Route::get('/annonce/{id}', [Announcement_companies_controller::class,'show'])->
 Route::post('/annonce/{id}', [Announcement_companies_controller::class,'destroy'])->name('annonce_compagnie.destroy');
 
 Route::get('/annonce/{id}/edit',[Announcement_companies_controller::class, 'edit'])->name('annonce_compagnie.edit');
+Route::put('/annonce/{id}', [Announcement_companies_controller::class, 'update'])->name('annonce_compagnie.update');
 
 Route::get('/profil', [ProfilController::class,"index"])->name('Profil');
 

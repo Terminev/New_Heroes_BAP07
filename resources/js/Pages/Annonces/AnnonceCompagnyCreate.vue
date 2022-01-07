@@ -136,8 +136,6 @@
                 var time_work = document.getElementById('time_work').value
                 var number_of_jobs = document.getElementById('number_of_jobs').value
 
-                console.log(this.form)
-
                 this.form.push({
                     'compagnies_id': compagnies_id,
                     'announcement_title': announcement_title,
@@ -150,7 +148,6 @@
                     'number_of_jobs': number_of_jobs,
                 })
 
-                console.log(this.form)
 
                 this.$inertia.post(this.route('annonce_compagnie.store'), this.form)
             }

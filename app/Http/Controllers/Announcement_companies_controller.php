@@ -83,12 +83,14 @@ class Announcement_companies_controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $annonce_edit = Announcement_companies::findOrFail($id);
-        // $this->validate($request, [
-        //     'localisation'=>'required',
-        //     ''
-        // ]);
-        // $annonce_edit->update($request->only(''))
+        error_log('$request');
+        error_log($request);
+        error_log('$id');
+        error_log($id);
+        $annonce_edit = Announcement_companies::findOrFail($id);
+        error_log($annonce_edit);
+        $annonce_edit->update($request[0]);
+        return redirect()->route('annonce_compagnie.index');
     }
 
     /**
