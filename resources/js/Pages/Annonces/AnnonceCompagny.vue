@@ -96,6 +96,11 @@
                     <input class="input-price" type="number" placeholder="Min">
                     <input class="input-price" type="number" placeholder="Max">
                 </div>
+                 <div class="contain-button">
+                    <button>
+                        Réinitialiser
+                    </button>
+                </div>
             </div>
 
             <div class="group-contain">
@@ -105,6 +110,11 @@
                         <input type="text" placeholder="Sport Pratiqués">
                     </div>
                     <p>-</p>
+                </div>
+                 <div class="contain-button">
+                    <button>
+                        Réinitialiser
+                    </button>
                 </div>
             </div>
         </section>

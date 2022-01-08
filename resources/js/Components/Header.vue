@@ -12,6 +12,7 @@
                 <li v-if="!$page.props.user"><a href="/register">Inscription</a></li>
                 <li v-if="!$page.props.user"><a href="/login">Connexion</a></li>
                 <li v-if="$page.props.user"><a href="/user/profile">Modifications Profil</a></li>
+                <li v-if="$page.props.user"><a href="/profil">Profil</a></li>
                 <li><a href="/annonce">Annonces</a></li>
                 <li><a href="/faq">FAQ</a></li>
                 <li><a href="/mentions_legal">Mentions Légal</a></li>
