@@ -16,16 +16,16 @@
 
         <form @submit.prevent="submit" v-if="!form.entreprise">
 
-            <div class="border flex h-11 rounded">
-                <div class="containeurimage">
+            <div class="input-container">
+                <div class="img-container">
                     <img src="/storage/img/login2.png" alt="login">
                 </div>
                 <jet-input id="name" type="text" placeholder="First Name" class="block w-full" v-model="form.name"
                     required autofocus autocomplete="name" />
             </div>
 
-            <div class="border flex h-11 rounded">
-                <div class="containeurimage">
+            <div class="input-container">
+                <div class="img-container">
                     <img src="/storage/img/login2.png" alt="login">
                 </div>
                 <jet-input id="last_name" type="text" placeholder="Last Name" class="block w-full"
@@ -33,48 +33,48 @@
             </div>
 
 
-            <div class="border flex h-11 rounded">
-                <div class="containeurimage">
+            <div class="input-container">
+                <div class="img-container">
                     <img src="/storage/img/map.png" alt="login">
                 </div>
                 <jet-input id="localisation" type="text" placeholder="Localisation" class="block w-full"
                     v-model="form.localisation" required autofocus autocomplete="name" />
             </div>
 
-            <div class="border flex h-11 rounded">
-                <div class="containeurimage">
+            <div class="input-container">
+                <div class="img-container">
                     <img src="/storage/img/telephone.png" alt="login">
                 </div>
                 <jet-input id="phone" type="number" placeholder="Phone Number" class="block w-full" v-model="form.phone"
                     required autofocus autocomplete="name" />
             </div>
 
-            <div class="border flex h-11 rounded">
-                <div class="containeurimage">
+            <div class="input-container">
+                <div class="img-container">
                     <img src="/storage/img/@.png" alt="login">
                 </div>
                 <jet-input id="email" type="email" placeholder="E-mail" class="block w-full" v-model="form.email"
                     required />
             </div>
 
-            <div class="border flex h-11 rounded">
-                <div class="containeurimage">
+            <div class="input-container">
+                <div class="img-container">
                     <img class="age" src="/storage/img/age-group.png" alt="login">
                 </div>
                 <jet-input id="age" type="number" placeholder="Age" class="block w-full" v-model="form.age" required
                     autocomplete="new-password" />
             </div>
 
-            <div class="border flex h-11">
-                <div class="containeurimage">
+            <div class="input-container">
+                <div class="img-container">
                     <img src="/storage/img/lock.png" alt="login">
                 </div>
                 <jet-input id="password" type="password" placeholder="Password" class="block w-full"
                     v-model="form.password" required autocomplete="new-password" />
             </div>
 
-            <div class="border flex h-11 rounded">
-                <div class="containeurimage">
+            <div class="input-container">
+                <div class="img-container">
                     <img src="/storage/img/lock.png" alt="login">
                 </div>
                 <jet-input id="password_confirmation" type="password" placeholder="Password Confirmation"
@@ -97,7 +97,8 @@
             </div>
 
             <div class="submit flex items-center justify-end flex-col-reverse">
-                <Link :href="route('login')" class="login text-center underline text-sm text-black-900 hover:text-black-900">
+                <Link :href="route('login')"
+                    class="login text-center underline text-sm text-black-900 hover:text-black-900">
                 Vous avez déja un compte ? Connectez-vous
                 </Link>
 
@@ -110,16 +111,16 @@
 
         <form @submit.prevent="submit" v-if="form.entreprise">
 
-            <div class="border flex h-11 rounded">
-                <div class="containeurimage">
+            <div class="input-container">
+                <div class="img-container">
                     <img src="/storage/img/login2.png" alt="login">
                 </div>
                 <jet-input id="company_name" type="text" placeholder="Company Name" class="block w-full"
                     v-model="form.company_name" />
             </div>
 
-            <div class="border flex h-11 rounded">
-                <div class="containeurimage">
+            <div class="input-container">
+                <div class="img-container">
                     <img src="/storage/img/login2.png" alt="login">
                 </div>
                 <jet-input id="siret" type="text" placeholder="Siret" class="block w-full" v-model="form.siret"
@@ -127,48 +128,48 @@
             </div>
 
 
-            <div class="border flex h-11 rounded">
-                <div class="containeurimage">
+            <div class="input-container">
+                <div class="img-container">
                     <img src="/storage/img/map.png" alt="login">
                 </div>
                 <jet-input id="localisation" type="text" placeholder="Localisation" class="block w-full"
                     v-model="form.localisation" required autofocus autocomplete="name" />
             </div>
 
-            <div class="border flex h-11 rounded">
-                <div class="containeurimage">
+            <div class="input-container">
+                <div class="img-container">
                     <img src="/storage/img/telephone.png" alt="login">
                 </div>
                 <jet-input id="phone" type="number" placeholder="Phone Number" class="block w-full" v-model="form.phone"
                     required autofocus autocomplete="name" />
             </div>
 
-            <div class="border flex h-11 rounded">
-                <div class="containeurimage">
+            <div class="input-container">
+                <div class="img-container">
                     <img src="/storage/img/@.png" alt="login">
                 </div>
                 <jet-input id="email" type="email" placeholder="E-mail" class="block w-full" v-model="form.email"
                     required />
             </div>
 
-            <div class="border flex h-11 rounded">
-                <div class="containeurimage">
+            <div class="input-container">
+                <div class="img-container">
                     <img class="age" src="/storage/img/age-group.png" alt="login">
                 </div>
                 <jet-input id="number_employe" type="number" placeholder="number employe" class="block w-full"
                     v-model="form.number_employe" />
             </div>
 
-            <div class="border flex h-11 rounded">
-                <div class="containeurimage">
+            <div class="input-container">
+                <div class="img-container">
                     <img src="/storage/img/map.png" alt="login">
                 </div>
                 <jet-input id="name_representing" type="text" placeholder="Name representing" class="block w-full"
                     v-model="form.name_representing" />
             </div>
 
-            <div class="border flex h-11 rounded">
-                <div class="containeurimage">
+            <div class="input-container">
+                <div class="img-container">
                     <img src="/storage/img/map.png" alt="login">
                 </div>
                 <jet-input id="industry" type="text" placeholder="Industry" class="block w-full"
@@ -176,16 +177,16 @@
             </div>
 
 
-            <div class="border flex h-11">
-                <div class="containeurimage">
+            <div class="input-container border flex h-11">
+                <div class="img-container">
                     <img src="/storage/img/lock.png" alt="login">
                 </div>
                 <jet-input id="password" type="password" placeholder="Password" class="block w-full"
                     v-model="form.password" required autocomplete="new-password" />
             </div>
 
-            <div class="border flex h-11 rounded">
-                <div class="containeurimage">
+            <div class="input-container">
+                <div class="img-container">
 
                     <img src="/storage/img/lock.png" alt="login">
                 </div>
@@ -319,23 +320,36 @@
         padding: 30px 0;
         padding-left: 50px;
         padding-right: 50px;
+        font-size: 24px;
+        color: #101010;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
     }
 
     jet-input {
         width: 257, 68px;
     }
 
-    .containeurimage {
+    .input-container {
+        display: flex;
+        height: 46px;
+        border-radius: 4px;
+        background: linear-gradient(#C6E3DE, #81A4D0);
+    }
+
+    .input-container input {
+        margin: 2px 2px 2px 0px;
+    }
+
+    .img-container {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 31px;
-        height: 100%;
-        background: linear-gradient(#bbd9db, #8aacd1);
-    }
-
-    .border {
-        margin-bottom: 15px;
+        height: auto;
+        margin: 2px;
+        background: linear-gradient(#E9F5F3, #CBD8EC);
     }
 
     .age {
@@ -343,22 +357,12 @@
         height: auto;
     }
 
-    .submit {
-        margin-top: 65px;
-    }
-
     .login {
         padding-top: 30px;
     }
 
     header {
-        width: 100%;
-        height: 63px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-left: 15px;
-        padding-right: 15px;
+        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.13);
     }
 
 </style>

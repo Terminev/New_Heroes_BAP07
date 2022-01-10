@@ -37,7 +37,8 @@
                 <div class="h-11 mt-8 mb-8">
                     <h3>Temps de travail :</h3>
                     <jet-input id="time_work" type="number" placeholder="Combien d'heure par semaine"
-                        class="input block w-full" v-model="form.time_work" required autofocus autocomplete="time_work" />
+                        class="input block w-full" v-model="form.time_work" required autofocus
+                        autocomplete="time_work" />
                 </div>
 
                 <div class="h-11 mt-8 mb-8">
@@ -49,8 +50,8 @@
 
                 <div class="h-11 mt-8 mb-8">
                     <h3>Rémuneration :</h3>
-                    <jet-input id="pay" type="number" placeholder="Salaire/mois" class="input block w-full" v-model="form.pay"
-                        required autofocus autocomplete="pay" />
+                    <jet-input id="pay" type="number" placeholder="Salaire/mois" class="input block w-full"
+                        v-model="form.pay" required autofocus autocomplete="pay" />
                 </div>
 
                 <div class="h-11 mt-8 mb-16">

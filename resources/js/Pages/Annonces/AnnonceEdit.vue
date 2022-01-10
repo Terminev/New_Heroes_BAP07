@@ -16,7 +16,6 @@
                 </button>
             </div>
             <div class="annonce-header-img">
-                <img src="/storage/img/favorite_heart.png" alt="favorite img">
                 <img class="logo-compagny" src="" alt="img profil compagnie">
                 <a :href="'/annonce/'" class="flex button-back">
                     <img src="/storage/img/arrow_left.png" alt="favorite img"> Retour
@@ -71,7 +70,7 @@
                 <!-- Il faudra changer cette input pour mettre le truc html où on peut styliser directement dans le site  -->
                 <h3>Déscription du post :</h3>
                 <textarea id="announcement_description" placeholder="Inscrivez ici tous ce qui vous passe par la tête"
-                    class="block w-full" required :value="annonce.annonce_description" />
+                    class="block w-full" required :value="annonce.announcement_description" />
                 </div>
             <div class="align-button">
                 <input type="submit" value="Modifer Annonce" class="edit" @click="submit">

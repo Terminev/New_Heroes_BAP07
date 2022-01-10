@@ -20,6 +20,7 @@
                 </a>
             </div>
             <div class="annonce-header-img">
+                <!-- On pourra ajouter plus tard le système de favorie aussi sur cette page  -->
                 <!-- <div v-if="$page.props.user">
                     <img v-if="annonces.compagnies_id ==  favorie.announcement_companies_table_id" class="blackheart"
                         src="/storage/img/favorite_heart.png" alt="favorite img">
@@ -40,6 +41,10 @@
             <div>
                 <h3>Service :</h3>
                 <p>{{annonces.announcement_title}}</p>
+            </div>
+            <div>
+                <h3>Domaine :</h3>
+                <p>{{annonces.domaine}}</p>
             </div>
             <div>
                 <h3>Temps de travail :</h3>

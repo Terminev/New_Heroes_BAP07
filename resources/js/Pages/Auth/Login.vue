@@ -50,10 +50,10 @@
 
             <div class="flex items-center justify-center flex-col password-forgot">
                 <Link v-if="canResetPassword" :href="route('password.request')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900">
+                    class="mt-8 mb-4 underline text-sm text-gray-600 hover:text-gray-900">
                 Mot de passe oublié ?
                 </Link>
-                <Link v-if="canResetPassword" :href="route('register')" class="text-sm mt-8 hover:text-gray-900">
+                <Link v-if="canResetPassword" :href="route('register')" class="text-sm hover:text-gray-900">
                 Nouveau du New Heroes ? <span class="font-bold">Inscrivez-vous</span>
                 </Link>
             </div>
@@ -129,14 +129,6 @@
     }
 
     header {
-        display: flex;
-        position: fixed;
-        height: 63px;
-        background: white;
-        align-items: center;
-        width: 100%;
-        justify-content: space-between;
-        padding: 0 15px;
         box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.13);
     }
 
@@ -215,8 +207,8 @@
         font-size: 18px;
     }
 
-   .remember{
-       width: 60%;
-   }
+    .remember {
+        width: 60%;
+    }
 
 </style>

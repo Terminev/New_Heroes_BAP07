@@ -153,8 +153,8 @@
                     </div>
                     <h4>{{user.company_name}}</h4>
                     <h5>{{annonce.localisation}}</h5>
-                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, alias.
-                        <!-- {{annonce.announcement_description}} -->
+                    <p> 
+                        {{annonce.announcement_description}}
                     </p>
                 </div>
             </a>
