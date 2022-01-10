@@ -96,7 +96,7 @@
                     <input class="input-price" type="number" placeholder="Min">
                     <input class="input-price" type="number" placeholder="Max">
                 </div>
-                 <div class="contain-button">
+                <div class="contain-button">
                     <button>
                         Réinitialiser
                     </button>
@@ -111,7 +111,7 @@
                     </div>
                     <p>-</p>
                 </div>
-                 <div class="contain-button">
+                <div class="contain-button">
                     <button>
                         Réinitialiser
                     </button>
@@ -143,7 +143,7 @@
             <img v-if="tab_in_favories.includes(annonce.id)" class="blackheart mr-8 mt-2 mb-2"
                 src="/storage/img/favorite_heart.png" alt="favorite img"
                 @click="favorite(annonce.id, $page.props.user.id )">
-            <img v-else class="blackheart mr-8 mt-2 mb-2" src="/storage/img/blackheart.png" alt="favorite img"
+            <img v-else class="blackheart mr-8 mt-2 mb-2" src="/storage/img/blackheart.png" alt="No in favorite img"
                 @click="favorite(annonce.id, $page.props.user.id )">
             <a :href="'/annonce/'+annonce.id">
                 <img src="" class="annonce-img" alt="img profil compagnie">
@@ -153,7 +153,8 @@
                     </div>
                     <h4>{{user.company_name}}</h4>
                     <h5>{{annonce.localisation}}</h5>
-                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, alias.<!-- {{annonce.announcement_description}} -->
+                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, alias.
+                        <!-- {{annonce.announcement_description}} -->
                     </p>
                 </div>
             </a>

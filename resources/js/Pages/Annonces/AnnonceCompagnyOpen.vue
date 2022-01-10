@@ -13,12 +13,18 @@
                 <jet-button class="button-post background-blue">
                     POSTULER
                 </jet-button>
-                <jet-button v-if="user.id == annonces.compagnies_id" class="button-post background-red" @click="Delete">
-                    Supprimer L'annonce
-                </jet-button>
+                <a :href="'/annonce/'+annonces.id+'/delete'">
+                    <jet-danger-button class="button-delete background-red" v-if="user.id == annonces.compagnies_id">
+                        Supprimer L'annonce
+                    </jet-danger-button>
+                </a>
             </div>
             <div class="annonce-header-img">
-                <img src="/storage/img/favorite_heart.png" alt="favorite img">
+                <!-- <div v-if="$page.props.user">
+                    <img v-if="annonces.compagnies_id ==  favorie.announcement_companies_table_id" class="blackheart"
+                        src="/storage/img/favorite_heart.png" alt="favorite img">
+                    <img v-else class="blackheart" src="/storage/img/blackheart.png" alt="No in favorite img">
+                </div> -->
                 <img class="logo-compagny" src="" alt="img profil compagnie">
                 <a :href="'/annonce/'" class="flex button-back">
                     <img src="/storage/img/arrow_left.png" alt="favorite img"> Retour
@@ -51,45 +57,74 @@
                 <p>{{annonces.announcement_description}}</p>
             </div>
             <div class="align-button">
-            <a  :href="'/annonce/'+annonces.id+'/edit'" class="edit">Edit</a>
+                <a :href="'/annonce/'+annonces.id+'/edit'" class="edit">Edit</a>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    import Header from '@/Components/Header.vue';
+    import Header from '@/Components/Header.vue'
+    import JetButton from '@/Jetstream/Button.vue'
+    import JetDangerButton from '@/Jetstream/DangerButton.vue'
+
     export default {
-        components : {
-            Header
+        components: {
+            Header,
+            JetButton,
+            JetDangerButton,
         },
         props: ['annonces', 'user'],
 
+        data() {
+            return {
+                tab_in_favories: [],
+            }
+        },
+
         methods: {
-            Delete() {
+            deleteAnnonce() {
                 var id = this.annonces.id
                 console.log(id)
-                this.$inertia.post(this.route('annonce_compagnie.destroy'), id)
-            }
-        }
+                console.log(this.$inertia)
+                this.$inertia.get(this.route('annonce_compagnie.destroy'), id)
+            },
+
+            // ChangeColor() {
+            //     this.tab_in_favories = []
+            //     console.log(this.favories.length)
+            //     console.log(this.tab_in_favories)
+
+            //     for (var l = 0; l < this.favories.length; l++) {
+            //         if (this.user.id == this.favories[l].users_id) {
+            //             this.tab_in_favories.push(this.favories[l].announcement_companies_table_id)
+            //         }
+            //     }
+            // }
+        },
+
+        // mounted() {
+        //     this.ChangeColor()
+        // },
+
     }
 
 </script>
 
 <style scoped>
+    .align-button {
+        display: flex;
+        justify-content: center;
+    }
 
-.align-button{
-    display: flex;
-    justify-content: center;
-}
+    .edit {
+        background-color: #001598;
+        width: 50%;
+        color: white;
+        border-radius: 4px;
+        text-align: center;
+    }
 
-.edit{
-    background-color: #001598;
-    width: 50%;
-    color: white;
-    border-radius:4px ;
-    text-align: center;
-}
     header {
         display: flex;
         position: fixed;
@@ -133,7 +168,8 @@
 
     /* Contenu du haut de la page d'une annonce */
 
-    .button-post {
+    .button-post,
+    .button-delete {
         padding: 6px 43px;
         margin-top: 8px;
         font-size: 14px;

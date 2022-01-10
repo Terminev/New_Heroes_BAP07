@@ -50,7 +50,7 @@ Route::get('/annonce/create', [Announcement_companies_controller::class,'create'
 Route::post('/annonce/create', [Announcement_companies_controller::class,'store'])->name('annonce_compagnie.store');
 
 Route::get('/annonce/{id}', [Announcement_companies_controller::class,'show'])->name('annonce_compagnie.show');
-Route::post('/annonce/{id}', [Announcement_companies_controller::class,'destroy'])->name('annonce_compagnie.destroy');
+Route::get('/annonce/{id}/delete', [Announcement_companies_controller::class,'destroy'])->name('annonce_compagnie.destroy');
 
 Route::get('/annonce/{id}/edit',[Announcement_companies_controller::class, 'edit'])->name('annonce_compagnie.edit');
 Route::put('/annonce/{id}', [Announcement_companies_controller::class, 'update'])->name('annonce_compagnie.update');

@@ -92,7 +92,7 @@ class Announcement_companies_controller extends Controller
         $annonce_edit->update($request[0]);
         return redirect()->route('annonce_compagnie.index');
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -102,8 +102,9 @@ class Announcement_companies_controller extends Controller
     public function destroy($id)
     {
         // Log::info($id);
-        $annonce = Announcement_companies::find($id);
-        $annonce->delete();
+        // error_log($id);
+        $annonces = Announcement_companies::find($id);
+        $annonces->delete();
 
         return redirect()->route("annonce_compagnie.index");
     }
