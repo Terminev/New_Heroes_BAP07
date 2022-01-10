@@ -43,7 +43,7 @@
 
             <div class="block remember-button mt-8">
                 <label class="remember-button-content">
-                    <span>Remember me</span>
+                    <span class="remember">Remember me</span>
                     <jet-checkbox class="ml-2" name="remember" v-model:checked="form.remember" />
                 </label>
             </div>
@@ -214,5 +214,9 @@
         align-items: center;
         font-size: 18px;
     }
+
+   .remember{
+       width: 60%;
+   }
 
 </style>

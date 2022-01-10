@@ -9,6 +9,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\CompteController;
+use App\Http\Controllers\LoginController;
 use App\Models\Announcement_companies;
 use Inertia\Inertia;
 
@@ -31,6 +32,8 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+// Route::get('/', [LoginController::class,"index"])->name('Login');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
