@@ -121,9 +121,6 @@
                 molestiae. Corporis, tempora.
             </p>
         </div>
-        <button>
-            Recrutez
-        </button>
     </section>
 
 </template>
@@ -158,16 +155,6 @@
         font-size: 20px;
     }
 
-    button {
-        background-color: #0d6efd;
-        width: 80%;
-        height: 46px;
-        margin-top: 15px;
-        padding-left: 5px;
-        padding-right: 5px;
-        color: white;
-        margin-bottom: 20px;
-    }
 
     .activity-domaine {
         width: 90%;
